@@ -86,7 +86,6 @@ cout << "                                                     QUE DESEAS HACER ?
 
 system ("cls");
 
-cout << "hOLA";
 
 }
 
