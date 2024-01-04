@@ -1,0 +1,92 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std ;
+
+ifstream A ("DATOS.txt");
+ifstream B ("PORCENTAJES.txt");
+
+const int num_carreras = 42;
+
+int i, j, tott, t1, t2, t3, t4, t5, t6, t7, t8;
+
+string totp, p1, p2, p3, p4, p5, p6, p7, p8;
+
+string pal, pal2, ACCION;
+
+struct tsueldo {
+
+int tot, s1, s2, s3, s4, s5, s6, s7, nocons;
+
+};
+
+struct tsueldos {
+
+string totpp, pp1, pp2, pp3, pp4, pp5, pp6, pp7, noconspp;
+
+};
+
+typedef tsueldo tdatos [18] [num_carreras] ;
+
+typedef tsueldos tporcentajes [18] [num_carreras] ;
+
+string carreras [num_carreras] ;
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+int main () {
+
+tdatos datos1;
+
+tporcentajes porcentajes1;
+
+for ( i = 0 ; i < 18 ; i++ ) {
+
+    for ( j = 0 ; j < 42 ; j++ ) {
+
+    A >> pal >> tott >> t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8;
+
+    B >> pal2 >> totp >> p1 >> p2 >> p3 >> p4 >> p5 >> p6 >> p7 >> p8;
+
+    datos1[i][j].tot = tott; datos1[i][j].s1 = t1; datos1[i][j].s2 = t2; datos1[i][j].s3 = t3; datos1[i][j].s4 = t4; datos1[i][j].s5 = t5; datos1[i][j].s6 = t6; datos1[i][j].s7 = t7; datos1[i][j].nocons = t8;
+
+    porcentajes1[i][j].totpp = totp; porcentajes1[i][j].pp1 = p1; porcentajes1[i][j].pp2 = p2; porcentajes1[i][j].pp3 = p3; porcentajes1[i][j].pp4 = p4; porcentajes1[i][j].pp5 = p5; porcentajes1[i][j].pp6 = p6; porcentajes1[i][j].pp7 = p7; porcentajes1[i][j].noconspp = p8;
+
+    carreras[j] = pal ;
+
+    }
+
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|       DATAJOBS - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                           Acciones                           |       |                     INFORMACION PROGRAMA                     |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. Consultar salario en primer empleo                      |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
+cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
+cout << "|   2. Introducir salario en primer empleo                     |       |  grados, estos datos se han dividido segun la region donde   |" << endl ;
+cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
+cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
+cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
+cout << "               ( utilizando los numeros respectivos de las acciones o la palabra principal de la accion en mayusculas )"  << endl << endl ;
+
+cout << "                                                     QUE DESEAS HACER ? " ; cin >> ACCION ;
+
+system ("cls");
+
+cout << "hOLA";
+
+}
+
