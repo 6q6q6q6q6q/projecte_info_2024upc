@@ -66,21 +66,21 @@ for ( i = 0 ; i < 18 ; i++ ) {
 
 
 
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|       DATAJOBS - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España       |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
-cout << "|                           Acciones                           |       |                     INFORMACION PROGRAMA                     |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   1. Consultar salario en primer empleo                      |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
-cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
-cout << "|   2. Introducir salario en primer empleo                     |       |  grados, estos datos se han dividido segun la region donde   |" << endl ;
-cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
-cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       |                                                              |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|       elteuprimersou.com - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España       |" << endl ;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "----------------------------------------------------------------                 ----------------------------------------------------------------" << endl ;
+cout << "|                           Acciones                           |                 |                     INFORMACION PROGRAMA                     |" << endl ;
+cout << "|                                                              |                 |                                                              |" << endl ;
+cout << "|   1. Consultar salario en primer empleo                      |                 |  Este programa ofrece una base de datos con la informacion   |" << endl ;
+cout << "|                                                              |                 |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
+cout << "|   2. Introducir salario en primer empleo                     |                 |  grados, estos datos se han dividido segun la region donde   |" << endl ;
+cout << "|                                                              |                 |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
+cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |                 |  datos total del pais.                                       |" << endl ;
+cout << "|                                                              |                 |                                                              |" << endl ;
+cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |                 |                                                              |" << endl ;
+cout << "|                                                              |                 |                                                              |" << endl ;
+cout << "----------------------------------------------------------------                 ----------------------------------------------------------------" << endl << endl ;
 cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
 cout << "               ( utilizando los numeros respectivos de las acciones o la palabra principal de la accion en mayusculas )"  << endl << endl ;
 
