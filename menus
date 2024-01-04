@@ -1,0 +1,15 @@
+cout << "------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                               |
+cout << "|     1. Nacional                       7. Cantabria                     13. Galicia            |
+cout << "|                                                                                               |
+cout << "|     2. Andalucía                      8. Castilla y León               14. Madrid             |
+cout << "|                                                                                               |
+cout << "|     3. Aragón                         9. Castilla la Mancha            15. Murcia             |
+cout << "|                                                                                               |
+cout << "|     4. Principado de Asturias        10. Cataluña                      16. Navarra            |
+cout << "|                                                                                               |
+cout << "|     5. Islas Baleares                11.  Comunitat Valenciana         17. País Vasco         |
+cout << "|                                                                                               |
+cout << "|     6. Canarias                      12. Extremadura                   18. La Rioja           |
+cout << "|                                                                                               |      
+cout << "------------------------------------------------------------------------------------------------" << endl ;
