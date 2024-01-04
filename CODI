@@ -86,6 +86,8 @@ cout << "                                                     QUE DESEAS HACER ?
 
 system ("cls");
 
+cout<<"Gay quien lo lea..."<<endl;
+
 
 }
 
