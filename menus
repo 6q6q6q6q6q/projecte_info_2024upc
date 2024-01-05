@@ -36,3 +36,23 @@ cout << "  |                                                                    
 cout << "  |     6. Informática                                                                            |" << endl ;
 cout << "  |                                                                                               |" << endl ;
 cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                  Selecciona una CARRERA dentro de EDUCACIÓN                   |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Formación de docentes de enseñanza infantil                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Formación de docentes de enseñanza primaria                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Educación (Otros Estudios)                                                             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
