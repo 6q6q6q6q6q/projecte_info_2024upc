@@ -25,7 +25,7 @@ cout << "  ---------------------------------------------------------------------
 cout << "  |                                                                                               |" << endl ;
 cout << "  |     1. Educación                      7. Ingeniería                                           |" << endl ;
 cout << "  |                                                                                               |" << endl ;
-cout << "  |     2. Artes y Humanidades            8. Agricultura                                          |" << endl ;
+cout << "  |     2. Artes y Humanidades            8. Agricultura, ganadería y pesca                       |" << endl ;
 cout << "  |                                                                                               |" << endl ;
 cout << "  |     3. Ciencias Sociales              9. Salud y servicios sociales                           |" << endl ;
 cout << "  |                                                                                               |" << endl ;
@@ -39,7 +39,7 @@ cout << "  ---------------------------------------------------------------------
 
 
 cout << "  ------------------------------------------------------------------------------------------------" << endl ;
-cout << "  |                             Selecciona una CARRERA dentro de EDUCACIÓN                        |" << endl ;
+cout << "  |                           Selecciona unos ESTUDIOS dentro de EDUCACIÓN                        |" << endl ;
 cout << "  ------------------------------------------------------------------------------------------------" << endl ;
 cout << "  ------------------------------------------------------------------------------------------------" << endl ;
 cout << "  |                                                                                               |" << endl ;
@@ -52,6 +52,146 @@ cout << "  |                                                                    
 cout << "  |                                                                                               |" << endl ;
 cout << "  |                                                                                               |" << endl ;
 cout << "  |     3. Educación (Otros Estudios)                                                             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                         Selecciona unos ESTUDIOS dentro de ARTES Y HUMANIDADES                |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Tecnicas audiovisuales y medios de comunicación                                        |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Arte (Otros Estudios)                                                                  |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Lenguas                                                                                |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                         Selecciona unos ESTUDIOS dentro de CIENCIAS SOCIALES                  |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Economía                                 4. Periodismo y documentación                 |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Psicología                                                                             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Ciencias sociales y del comportamiento (Otros Estudios)                                |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                         Selecciona unos ESTUDIOS dentro de CIENCIAS                           |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Ciencias de la vida                     4. Matemáticas y estadística                   |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Medio Ambiente                                                                         |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Ciencias químicas, físicas y geológicas                                                |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                         Selecciona unos ESTUDIOS dentro de INGENIERÍA                         |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Ingeniería y profesiones afines                                                        |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Industria manufacturera y producción                                                   |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Arquitectura y construcción                                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |             Selecciona unos ESTUDIOS dentro de AGRICULTURA, GANADERÍA Y PESCA                 |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Agricultura y ganadería                                                                |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Silvicultura                                                                           |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Veterinaria                                                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                 Selecciona unos ESTUDIOS dentro de SALUD Y SERVICIOS SOCIALES                  |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Medicina                            4. Servicios sociales                              |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Enfermería                                                                             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Salud (Otros Estudios)                                                                 |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                        Selecciona unos ESTUDIOS dentro de SERVICIOS                           |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Actividades físicas y deportivas                                                       |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Viajes, turismo y ocio                                                                 |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Servicios (Otros Estudios)                                                             |" << endl ;
 cout << "  |                                                                                               |" << endl ;
 cout << "  |                                                                                               |" << endl ;
 cout << "  |                                                                                               |" << endl ;
