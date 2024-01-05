@@ -1,18 +1,38 @@
-cout << "------------------------------------------------------------------------------------------------"
-cout << "|                              Selecciona una COMUNIDAD AUTONOMA                                |"
-cout << "------------------------------------------------------------------------------------------------"
-cout << "------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                                                               |
-cout << "|     1. Nacional                       7. Cantabria                     13. Galicia            |
-cout << "|                                                                                               |
-cout << "|     2. Andalucía                      8. Castilla y León               14. Madrid             |
-cout << "|                                                                                               |
-cout << "|     3. Aragón                         9. Castilla la Mancha            15. Murcia             |
-cout << "|                                                                                               |
-cout << "|     4. Principado de Asturias        10. Cataluña                      16. Navarra            |
-cout << "|                                                                                               |
-cout << "|     5. Islas Baleares                11.  Comunitat Valenciana         17. País Vasco         |
-cout << "|                                                                                               |
-cout << "|     6. Canarias                      12. Extremadura                   18. La Rioja           |
-cout << "|                                                                                               |      
-cout << "------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                              Selecciona una COMUNIDAD AUTONOMA                                |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Nacional                       7. Cantabria                     13. Galicia            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Andalucía                      8. Castilla y León               14. Madrid             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Aragón                         9. Castilla la Mancha            15. Murcia             |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     4. Principado de Asturias        10. Cataluña                      16. Navarra            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     5. Islas Baleares                11.  Comunitat Valenciana         17. País Vasco         |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     6. Canarias                      12. Extremadura                   18. La Rioja           |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+
+
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                  Selecciona un ÀMBITO                                        |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     1. Educación                      7. Ingeniería                                           |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     2. Artes y Humanidades            8. Agricultura                                          |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     3. Ciencias Sociales              9. Salud y servicios sociales                           |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     4. Negocios y derecho            10. Servicios                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     5. Ciencias                                                                               |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  |     6. Informática                                                                            |" << endl ;
+cout << "  |                                                                                               |" << endl ;
+cout << "  ------------------------------------------------------------------------------------------------" << endl ;
