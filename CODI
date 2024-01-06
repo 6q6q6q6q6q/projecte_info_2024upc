@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <stdlib.h>
+#include <conio.h>
 
 using namespace std ;
 
@@ -105,6 +105,8 @@ cout << "EMPLEO 1: " << CONS2[region1-1][grado1-1].noconspp << "%.      EMPLEO 2
 
 int main () {
 
+system("color 9F");
+
 tdatos datos1;
 
 tporcentajes porcentajes1;
@@ -163,7 +165,6 @@ cout << "                                               INTORDUCE LA ACCION QUE 
 cout << "               ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES O LA PALABRA PRINCIPAL DE LA ACCION EN MAYUSCULAS )"  << endl << endl ;
 
 cout << "                                                     QUE DESEAS HACER ? " ; cin >> ACCION ;
-
 system ("cls");
 
 }
@@ -178,7 +179,7 @@ if ( ACCION == "1" || ACCION == "CONSULTAR") {
         int Region1, Grado1;
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                     CONSULATAR DATOS DE SUELDOS DE  PRIMER EMPLEO SEGUN ESTUDIOS                                    |" << endl ;
+cout << "|                                     CONSULTAR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                      |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
@@ -544,22 +545,22 @@ for ( j = 0 ; j < num_carreras ; j++) {
 
 cout << "                                           INTORDUCE LA REGION DEL PRIMER EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> region3 ; cout << endl;
+cout << "                                                             REGION --> " ; cin >> region3 ; cout << endl << endl;
 
 
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> grado3 ; cout << endl;
+cout << "                                                             REGION --> " ; cin >> grado3 ; cout << endl << endl;
 
 
 cout << "                                          INTORDUCE LA REGION DEL SEGUNDO EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> region4 ; cout << endl;
+cout << "                                                             REGION --> " ; cin >> region4 ; cout << endl << endl;
 
 
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> grado4 ; cout << endl;
+cout << "                                                             REGION --> " ; cin >> grado4 ; cout << endl << endl;
 
 system ("cls");
 
