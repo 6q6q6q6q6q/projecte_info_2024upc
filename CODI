@@ -549,7 +549,7 @@ cout << "                                                             REGION -->
 
 
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
 cout << "                                                             REGION --> " ; cin >> grado3 ; cout << endl << endl;
 
 
@@ -559,7 +559,7 @@ cout << "                                                             REGION -->
 
 
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
 cout << "                                                             REGION --> " ; cin >> grado4 ; cout << endl << endl;
 
 system ("cls");
