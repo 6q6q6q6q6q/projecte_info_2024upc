@@ -100,6 +100,29 @@ cout << "EMPLEO 1: " << CONS2[region1-1][grado1-1].noconspp << "%.      EMPLEO 2
 
 }
 
+void ACCION_4(int region, const tdatos& CONS1) {
+int jmax, auxmax=0;
+ for (int j=1; j<42;j++){
+int  treballadors; // per mes tard guardar el valor més gran
+treballadors = CONS1[region-1][j].tot;
+
+    if (treballadors>auxmax) {auxmax=treballadors;jmax=j;}
+
+
+}
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                        RESULTADOS                                                                   |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|             En esta región el sector dónde predominan nuevos trabajadores es: " << carreras [jmax]    <<"                           |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+ }
+
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -618,8 +641,43 @@ system ("cls");
 else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                   BUSCADOR DEL SECTOR CON SUELDO MEDIO ESPECIFICO SEGUN EL USUARIO                                  |" << endl ;
+cout << "|                                       BUSCADOR DEL SECTOR DÓNDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Selecciona la region que quieras conocer los datos con los respectivos números                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+int region;
+cin>>region;
+
+system("cls");
+
+ACCION_4 (region, datos1);
+
+cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
 
 }
 
