@@ -100,33 +100,18 @@ cout << "EMPLEO 1: " << CONS2[region1-1][grado1-1].noconspp << "%.      EMPLEO 2
 
 }
 
-void ACCION_4(int region, const tdatos& CONS1) {
-int jmax, auxmax=0;
- for (int j=1; j<42;j++){
-int  treballadors; // per mes tard guardar el valor més gran
-treballadors = CONS1[region-1][j].tot;
-
-    if (treballadors>auxmax) {auxmax=treballadors;jmax=j;}
-
-
-}
-
-
+void ACCION_4( const tdatos& CONS1) {
+setlocale (LC_ALL, "spanish");
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                        RESULTADOS                                                                   |" << endl ;
+cout << "|                                       BUSCADOR DEL SECTOR DÓNDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
-cout << "|             En esta región el sector dónde predominan nuevos trabajadores es: " << carreras [jmax]    <<"                           |" << endl ;
+cout << "|      1. Selecciona la region que quieras conocer los datos con los respectivos números                                              |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-
-
- }
-
-void escribe_comunidades(int j) {
-
- cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
@@ -143,8 +128,31 @@ cout << "|          5. Islas Baleares                10. Cataluña              
 cout << "|                                                                                                                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 
+int region;
+cin>>region;
+
+system("cls");
+int jmax, auxmax=0;
+ for (int j=1; j<42;j++){
+int  treballadors; // per mes tard guardar el valor més gran
+treballadors = CONS1[region-1][j].tot;
+
+    if (treballadors>auxmax) {auxmax=treballadors;jmax=j;}
+
 
 }
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                        RESULTADOS                                                                   |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|             En esta región el sector dónde predominan nuevos trabajadores es: " << carreras [jmax]    <<"                           |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+ }
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -636,28 +644,8 @@ system ("cls");
 
 else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
-int region5;
 
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                       BUSCADOR DEL SECTOR DÓNDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|      1. Selecciona la region que quieras conocer los datos con los respectivos números                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-
-escribe_comunidades(j);
-
-
-cout << "                                        INTORDUZCA LA REGION DONDE DESEE REALIZAR LA BUSQUEDA " << endl ;
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> region5 ; cout << endl << endl;
-
-system("cls");
-
-ACCION_4 (region5, datos1);
+ACCION_4 (datos1);
 
 cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
 
