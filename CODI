@@ -111,6 +111,7 @@ treballadors = CONS1[region-1][j].tot;
 
 }
 
+
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                        RESULTADOS                                                                   |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
@@ -122,6 +123,29 @@ cout << "-----------------------------------------------------------------------
 
 
  }
+
+void escribe_comunidades(int j) {
+
+ cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+}
+
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -212,24 +236,9 @@ cout << "|                                                            INSTRUCCIO
 cout << "|                                                                                                                                     |" << endl ;
 cout << "|      1. Selecciona la region buscada o españa en su totalidad        2. Selecionar el grado o sector donde consultar los datos      |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+escribe_comunidades(j);
 
 cout << "                                               INTORDUCE LA REGION QUE DESEAS REALIZAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
@@ -287,22 +296,8 @@ cout << "|                                                                      
 cout << "|                                                   4. Indique cual es su salario                                                     |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+escribe_comunidades(j);
 
 cout << "                                               INTORDUCE LA REGION QUE DESEAS REALIZAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
@@ -316,7 +311,7 @@ cout << "-----------------------------------------------------------------------
 
 int k = 1;
 
-for ( j = 0 ; j < num_carreras ; j++) {
+for ( j = 0 ; j < carreras.size() ; j++) {
 
     cout << k << "  ----- " << carreras[j] << endl ; k++;
 
@@ -339,7 +334,7 @@ cout << "-----------------------------------------------------------------------
 
 int l = 1;
 
-for ( j = 0 ; j < num_carreras ; j++) {
+for ( j = 0 ; j < carreras.size() ; j++) {
 
     cout << l << "  ----- " << carreras[j] << endl ; l++;
 
@@ -543,22 +538,14 @@ cout << "|      1. Seleccione la region y el grado correspondiente del          
 cout << "|         primer empleo a comparar.                                         segundo empleo a comparar.                                |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+escribe_comunidades(j);
+
+cout << "                                           INTORDUCE LA REGION DEL PRIMER EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> region3 ; cout << endl << endl;
+
+system ("cls");
 
 int l = 1;
 
@@ -568,24 +555,31 @@ for ( j = 0 ; j < num_carreras ; j++) {
 
 }
 
-cout << "                                           INTORDUCE LA REGION DEL PRIMER EMPLEO A COMPARAR " << endl ;
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> region3 ; cout << endl << endl;
-
-
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> grado3 ; cout << endl << endl;
+cout << "                                                             GRADO --> " ; cin >> grado3 ; cout << endl << endl;
 
+system ("cls");
+
+escribe_comunidades(j);
 
 cout << "                                          INTORDUCE LA REGION DEL SEGUNDO EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
 cout << "                                                             REGION --> " ; cin >> region4 ; cout << endl << endl;
 
+system ("cls");
+
+l = 1;
+
+for ( j = 0 ; j < num_carreras ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
 
 cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
-cout << "                                                             REGION --> " ; cin >> grado4 ; cout << endl << endl;
+cout << "                                                             GRADO --> " ; cin >> grado4 ; cout << endl << endl;
 
 system ("cls");
 
@@ -642,6 +636,8 @@ system ("cls");
 
 else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
+int region5;
+
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                       BUSCADOR DEL SECTOR DÓNDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
@@ -650,30 +646,18 @@ cout << "|                                                            INSTRUCCIO
 cout << "|                                                                                                                                     |" << endl ;
 cout << "|      1. Selecciona la region que quieras conocer los datos con los respectivos números                                              |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 
-int region;
-cin>>region;
+escribe_comunidades(j);
+
+
+cout << "                                        INTORDUZCA LA REGION DONDE DESEE REALIZAR LA BUSQUEDA " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> region5 ; cout << endl << endl;
 
 system("cls");
 
-ACCION_4 (region, datos1);
+ACCION_4 (region5, datos1);
 
 cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
 
@@ -685,3 +669,4 @@ system ("cls");
 
 }
 }
+
