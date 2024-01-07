@@ -613,46 +613,7 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
-/* const int numIntervalos = 7;
 
-const double limitesSuperiores[numIntervalos] = {700, 999, 1499, 1999, 2499, 2999, 999999};
-
-int personasPorIntervalo3[numIntervalos] = {0};
-int personasPorIntervalo4[numIntervalos] = {0};
-
-for (int i = 0; i < datos1[region3-1][grado3-1].num; i++) {
-    double sueldo = datos1[region3-1][grado3-1].sueldo[i];
-    for (int j = 0; j < numIntervalos; j++) {
-        if (sueldo <= limitesSuperiores[j]) {
-            personasPorIntervalo3[j]++;
-            break;
-        }
-    }
-}
-
-for (int i = 0; i < datos1[region4-1][grado4-1].num; i++) {
-    double sueldo = datos1[region4-1][grado4-1].sueldo[i];
-    for (int j = 0; j < numIntervalos; j++) {
-        if (sueldo <= limitesSuperiores[j]) {
-            personasPorIntervalo4[j]++;
-            break;
-        }
-    }
-}
-
-for (int i = 0; i < numIntervalos; i++) {
-    double porcentaje3 = personasPorIntervalo3[i] * 100.0 / datos1[region3-1][grado3-1].num;
-    double porcentaje4 = personasPorIntervalo4[i] * 100.0 / datos1[region4-1][grado4-1].num;
-
-    cout << "Porcentaje de personas en el intervalo " << (i + 1) << ": " << porcentaje3 << "% en la región " << region3 << ", grado " << grado3 << endl;
-    cout << "Porcentaje de personas en el intervalo " << (i + 1) << ": " << porcentaje4 << "% en la región " << region4 << ", grado " << grado4 << endl;
-
-
-system ("cls");
-
-}
-
-}*/
 
 comparar_intervempleos( region3, region4, grado3, grado4, datos1, porcentajes1 ) ;
 
@@ -679,4 +640,3 @@ system ("cls");
 
 }
 }
-
