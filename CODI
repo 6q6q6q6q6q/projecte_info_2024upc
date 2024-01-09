@@ -765,6 +765,42 @@ cout << "-----------------------------------------------------------------------
 cout << "|                                      COMPARAR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                      |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
+int COMPARACION;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                              ACCIONES                                                               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Comparar los sueldos de una carrera en las diferentes          2. Comparar los sueldo de dos carreras diferentes en         |" << endl ;
+cout << "|         regiones de España                                                en dos regiones diferentes.                               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES )"  << endl << endl ;
+cout << "                                                     ¿ QUE DESEA HACER ? --> " ; cin >> COMPARACION ; cout << endl << endl;
+
+
+if (COMPARACION == 1) {
+
+system ("cls");
+
+int l = 1;
+
+for ( j = 0 ; j < num_carreras ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
+
+cout << "                                             INTORDUCE EL GRADO DEL EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
+cout << "                                                             GRADO --> " ; cin >> grado3 ; cout << endl << endl;
+
+comparar_intervempleos2( grado3, datos1, porcentajes1 ) ;
+
+}
+
+else if (COMPARACION == 2) {
+
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
@@ -817,9 +853,10 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
-
-
 comparar_intervempleos( region3, region4, grado3, grado4, datos1, porcentajes1 ) ;
+
+
+}
 
 cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
 
