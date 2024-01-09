@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <conio.h>
+#include <wchar.h>
 
 using namespace std ;
 
@@ -130,6 +131,9 @@ cout << "-----------------------------------------------------------------------
 
 int region;
 cin>>region;
+while (region!=1 || region!=2 || region!=3 || region!=4 || region!=5 || region!=6 || region!=7 || region!=8 || region!=9 || region!=10 ||
+        region!=11 || region!=12 || region!=13 || region!=14 || region!=15  || region!=16 || region!=17 || region!=18)
+{cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>region;}
 
 system("cls");
 int jmax, auxmax=0;
@@ -154,6 +158,32 @@ cout << "-----------------------------------------------------------------------
 
  }
 
+void ACCION_5(const tdatos& datos, const tporcentajes& porcentajes) {
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                    CONSULTA DE TODOS LOS DATOS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                   Datos disponibles                          |       |                     INFORMACION DE LA ACCIÓN                 |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. Datos numericos                                         |       |   ATENCIÓN !!! Esta acción puede tardar un tiempo en         |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|                                                              |       |                ejecutarse del todo, debido a la gran         |" << endl ;
+cout << "|   2. Porcentajes                                             |       |                                                              |" << endl ;
+cout << "|                                                              |       |                cantidad de información.                      |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   Por favor introduzca el numero del documento que           |       |                                                              |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   desea consultar.                                           |       |                                                              |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
+int opcio;
+cin>>opcio;
+
+while (opcio!=1 || opcio!=2) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
+
+system("cls");
+}
 void escribe_comunidades(int j) {
 
  cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
@@ -238,6 +268,8 @@ cout << "|                                                              |       
 cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
 cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       |                                                              |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   5. Leer todos los datos                                    |       |                                                              |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
 cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
 cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
@@ -638,5 +670,10 @@ system ("cls");
 
 }
 
+else if ( ACCION == "5" || ACCION == "LEER") {
+
+ACCION_5(datos1, porcentajes1);
+
+}
 }
 }
