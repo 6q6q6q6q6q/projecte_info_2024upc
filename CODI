@@ -105,7 +105,7 @@ if ( ACCION == "1" || ACCION == "CONSULTAR") {
 
 ACCION_1 ( datos1, porcentajes1, carreras, regiones );
 
-cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -138,9 +138,12 @@ cout << "-----------------------------------------------------------------------
 
 escribe_comunidades();
 
+while ( region2 < 0 || region2 > 18 ) {
 cout << "                                                      INTORDUCE LA REGION A EDITAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
 cout << "                                                             REGION --> " ; cin >> region2 ;
+
+}
 
 system ("cls");
 
@@ -271,6 +274,8 @@ else if ( salario2 < 700 ) {
     porcentajes1[region2-1][Grado1-1].s7 = 100*(datos1[region2-1][Grado1-1].s7 /datos1[region2-1][Grado1-1].tot);
     porcentajes1[region2-1][Grado1-1].nocons = 100*(datos1[region2-1][Grado1-1].nocons /datos1[region2-1][Grado1-1].tot);
 
+region2 = 19;
+
 }
 
 else if ( respuesta2 == "NO" || respuesta2 == "no" ) {
@@ -368,9 +373,11 @@ else if ( salario2 < 700 ) {
     porcentajes1[region2-1][carreras.size()-1].s7 = 100*(datos1[region2-1][carreras.size()-1].s7 /datos1[region2-1][carreras.size()-1].tot);
     porcentajes1[region2-1][carreras.size()-1].nocons = 100*(datos1[region2-1][carreras.size()-1].nocons /datos1[region2-1][carreras.size()-1].tot);
 
+region2 = 19
+
 }
 
-cout << " INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << " INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -384,7 +391,7 @@ else if ( ACCION == "3" || ACCION == "COMPARAR") {
 
 ACCION_3 ( datos1, porcentajes1, carreras, regiones );
 
-cout << " INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << " INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -399,7 +406,7 @@ else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
 ACCION_4 (datos1,regiones, carreras);
 
-cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
 
 ACCION = "O";
 
@@ -414,7 +421,7 @@ else if ( ACCION == "5" || ACCION == "LEER") {
 
 ACCION_5(datos1, porcentajes1, carreras);
 
-cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -426,7 +433,7 @@ else if (ACCION=="6" || ACCION=="CONSULTAR") {
 
 ACCION_6(porcentajes1, carreras);
 
-cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
 
 ACCION = "O";
 
