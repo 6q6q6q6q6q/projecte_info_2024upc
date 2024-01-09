@@ -301,11 +301,11 @@ cout << "|                                                              |       
 cout << "|   2. Porcentajes                                             |       |                                                              |" << endl ;
 cout << "|                                                              |       |                cantidad de información.                      |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   Por favor introduzca el numero del documento que           |       |                                                              |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   desea consultar.                                           |       |                                                              |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
+cout << "|   Por favor introduzca el numero del documento que           |       ----------------------------------------------------------------" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   desea consultar.                                           |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
 int opcio;
 cin>>opcio;
 
