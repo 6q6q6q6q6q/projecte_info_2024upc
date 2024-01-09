@@ -27,6 +27,7 @@ void ACCION_1( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& 
 void ACCION_3 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
 void ACCION_4 ( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) ;
 void ACCION_5 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras);
+void ACCION_6 ( const tdatos& CONS2,  const vector <string>& carreras);
 void escribe_comunidades();
 
 
@@ -418,6 +419,18 @@ ACCION = "O";
 system ("cls");
 
 }
+
+else if (ACCION=="6" || ACCION=="CONSULTAR") {
+
+ACCION_6(porcentajes1, carreras);
+
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+}
+
 }
 }
 }
@@ -431,7 +444,7 @@ system ("cls");
 
 void escoger_accion (string& ACCION) {
 
-while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" ) {
+while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" && ACCION!="6" && ACCION!="CONSULTAR" ) {
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
@@ -449,6 +462,8 @@ cout << "|                                                              |       
 cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
 cout << "|                                                              |" << endl ;
 cout << "|   5. Leer todos los datos                                    |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   6. Consultar un umbral de personas que cobran x dinero     |" << endl ;
 cout << "|                                                              |" << endl ;
 cout << "----------------------------------------------------------------" << endl << endl ;
 cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
@@ -778,10 +793,6 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
-if ( grado3 == grado4 && region3 == region4 ) cout << "EL PROGRAMA NO PUEDE REALIZAR ESTA ACCION PORQUE HA ELEGIDO LA MISMA CARRERA EN LA MISMA REGION" << endl << endl ;
-
-else {
-
 cout << "Total de trabajadores registrados en el empleo 1: " << CONS1[region3-1][grado3-1].tot << endl ;
 cout << "Total de trabajadores registrados en el empleo 2: " << CONS1[region4-1][grado4-1].tot << endl << endl << endl;
 cout << "Trabajadores con salario de menos de 700€ mensuales: " << endl ;
@@ -800,8 +811,6 @@ cout << "Trabajadores con salario de mas de 3000€ mensuales: " << endl ;
 cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s7 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s7 << "%." << endl << endl;
 cout << "Trabajadores cuyo salario no costa en la base de datos: " << endl;
 cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].nocons << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].nocons << "%." << endl << endl << endl;
-
-}
 
 }
 
@@ -937,5 +946,99 @@ cout << "-----------------------------------------------------------------------
 
 
 }
+
+}
+
+void ACCION_6 ( const tdatos& CONS2,  const vector <string>& carreras) {
+setlocale (LC_ALL, "spanish");
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                        CONSULTA DE CARRERAS CON MÁS DE UN PORCENTAJE EN x UMBRAL DE SALARIO                         |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                   UMBRAL DE SALARIO (en euros)               |       |                     INFORMACION DE LA ACCIÓN                 |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. + 1000         2. +1500          3. +2000               |       |   Introduzca primero el umbral que desea consultar,          |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|                                                              |       |   a continuación el porcentaje de personas que quiera,       |" << endl ;
+cout << "|   4. + 2500         5. +3000                                 |       |                                                              |" << endl ;
+cout << "|                                                              |       |   el programa buscara las carreras que cumplan con los       |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   Por favor introduzca el numero del umbral que              |       |    dos parametros.                                           |" << endl ;
+cout << "|                                                              |       ----------------------------------------------------------------" << endl ;
+cout << "|   desea consultar.                                           |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
+int opcio;
+cin>>opcio;
+
+while (opcio!=1 && opcio!=2 && opcio!=3 && opcio!=4 && opcio!=5) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
+
+system("cls");
+
+double percent;
+vector <string> comunitats (19);
+comunitats[0] = "NACIONAL";comunitats[1] = "ANDALUCÍA";comunitats[2] = "ARAGÓN";
+comunitats[3] = "PRINCIPADO DE ASTURIAS";comunitats[4] = "ISLAS BALEARES";comunitats[5] = "CANARIAS";
+comunitats[6] = "CANTABRIA";comunitats[7] = "CASTILLA Y LEÓN";comunitats[8] = "CASTILLA LA MANCHA";
+comunitats[9] = "CATALUÑA";comunitats[10] = "COMUNITAT VALENCIANA";comunitats[11] = "EXTREMADURA";
+comunitats[12] = "GALICIA";comunitats[13] = "MADRID";comunitats[14] = "MURCIA";
+comunitats[15] = "NAVARRA";comunitats[16] = "PAÍS VASCO"; comunitats[17] = "LA RIOJA";
+
+
+cout<<" POR FAVOR INTRODUZCA AHORA EL PORCENTAJE QUE DESEA CONSULTAR"<<endl;
+cin>>percent;
+while (percent<0 || percent>100) {cout<<" POR FAVOR INTRODUZCA UN VALOR ADECUADO"<<endl; cin>>percent;}
+
+if(opcio==1) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s3+CONS2[i][j].s4+CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a << "%" <<endl;; }
+}
+}
+
+}
+else if(opcio==2) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s4+CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==3) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==4) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==5) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+
 
 }
