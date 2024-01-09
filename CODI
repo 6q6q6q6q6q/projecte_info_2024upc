@@ -286,7 +286,8 @@ cout << "-----------------------------------------------------------------------
 
  }
 
-void ACCION_5(const tdatos& datos, const tporcentajes& porcentajes) {
+void ACCION_5(const tdatos& CONS1, const tporcentajes& CONS2) {
+setlocale (LC_ALL, "spanish");
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                    CONSULTA DE TODOS LOS DATOS                                                       |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
@@ -308,11 +309,53 @@ cout << "----------------------------------------------------------------       
 int opcio;
 cin>>opcio;
 
-while (opcio!=1 || opcio!=2) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
+while (opcio!=1 && opcio!=2) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
 
 system("cls");
+
+vector <string> comunitats (19);
+comunitats[1] = "NACIONAL";comunitats[2] = "ANDALUCÍA";comunitats[3] = "ARAGÓN";
+comunitats[4] = "PRINCIPADO DE ASTURIAS";comunitats[5] = "ISLAS BALEARES";comunitats[6] = "CANARIAS";
+comunitats[7] = "CANTABRIA";comunitats[8] = "CASTILLA Y LEÓN";comunitats[9] = "CASTILLA LA MANCHA";
+comunitats[10] = "CATALUÑA";comunitats[11] = "COMUNITAT VALENCIANA";comunitats[12] = "EXTREMADURA";
+comunitats[13] = "GALICIA";comunitats[14] = "MADRID";comunitats[15] = "MURCIA";
+comunitats[16] = "NAVARRA";comunitats[17] = "PAÍS VASCO"; comunitats[18] = "LA RIOJA";
+
+
+if (opcio==1) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                           DATOS NUMERICOS                                                            |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|           SALARIO (EN EUROS)         | TOTAL HAN TRABAJADO |      MENOS 700     |    DE 700 a 999    |   DE 1000 a 1499   |   DE 1500 a 1999   |    DE 2000 a 2499  |   DE 2500 a 3000   |    MÁS DE 3000    |       NO CONSTA           |" <<endl;
+ for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < 42 ; j++ ) {
+cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS1[i][j].tot<<"|"<<CONS1[i][j].s1<<"|"<<CONS1[i][j].s2<<"|"<<CONS1[i][j].s3<<"|"<<CONS1[i][j].s4<<"|"<<CONS1[i][j].s5<<"|"<<CONS1[i][j].s6<<"|"<<CONS1[i][j].s7<<"|"<<CONS1[i][j].nocons<<"|" <<endl ;
+}}
+cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
 }
 
+else if (opcio==2) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                           DATOS EN PORCENTAJES                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|         SALARIOS (EN EUROS)   | TOTAL HAN TRABAJADO |      MENOS 700   |    DE 700€ a 999  |  DE 1000€ a 1499  |  DE 1500 a 1999  |   DE 2000 a 2499 |  DE 2500 a 3000  |    MÁS DE 3000   |       NO CONSTA        |" <<endl;
+ for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < 42 ; j++ ) {
+cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS2[i][j].totpp<<"|"<<CONS2[i][j].pp1<<"|"<<CONS2[i][j].pp2<<"|"<<CONS2[i][j].pp3<<"|"<<CONS2[i][j].pp4<<"|"<<CONS2[i][j].pp5<<"|"<<CONS2[i][j].pp6<<"|"<<CONS2[i][j].pp7<<"|"<<CONS2[i][j].noconspp<<"|" <<endl ;
+}}
+cout << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ " << endl ;
+
+
+}
+}
 void escribe_comunidades(int j) {
 
  cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
@@ -381,7 +424,7 @@ for (i= 0 ; i < 714 ; i++ ) {
 
 while ( z != "Y") {
 
-while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "5" && ACCION != "LEER" ) {
+while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" ) {
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
@@ -722,42 +765,6 @@ cout << "-----------------------------------------------------------------------
 cout << "|                                      COMPARAR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                      |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
-int COMPARACION;
-
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                                              ACCIONES                                                               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "|      1. Comparar los sueldos de una carrera en las diferentes          2. Comparar los sueldo de dos carreras diferentes en         |" << endl ;
-cout << "|         regiones de España                                                en dos regiones diferentes.                               |" << endl ;
-cout << "|                                                                                                                                     |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES )"  << endl << endl ;
-cout << "                                                     ¿ QUE DESEA HACER ? --> " ; cin >> COMPARACION ; cout << endl << endl;
-
-
-if (COMPARACION == 1) {
-
-system ("cls");
-
-int l = 1;
-
-for ( j = 0 ; j < num_carreras ; j++) {
-
-    cout << l << "  ----- " << carreras[j] << endl ; l++;
-
-}
-
-cout << "                                             INTORDUCE EL GRADO DEL EMPLEO A COMPARAR " << endl ;
-cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
-cout << "                                                             GRADO --> " ; cin >> grado3 ; cout << endl << endl;
-
-comparar_intervempleos2( grado3, datos1, porcentajes1 ) ;
-
-}
-
-else if (COMPARACION == 2) {
-
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
@@ -810,10 +817,9 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
+
+
 comparar_intervempleos( region3, region4, grado3, grado4, datos1, porcentajes1 ) ;
-
-
-}
 
 cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
 
@@ -839,6 +845,17 @@ system ("cls");
 else if ( ACCION == "5" || ACCION == "LEER") {
 
 ACCION_5(datos1, porcentajes1);
+
+}
+else if ( ACCION == "5" || ACCION == "LEER") {
+
+ACCION_5(datos1, porcentajes1);
+
+cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
 
 }
 }
