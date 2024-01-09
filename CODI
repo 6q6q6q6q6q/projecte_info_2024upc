@@ -357,7 +357,6 @@ else if ( salario2 < 700 ) {
 
 }
 
-    porcentajes1[region2-1][Grado1-1].tot = 100;
     porcentajes1[region2-1][carreras.size()-1].s1 = 100*(datos1[region2-1][carreras.size()-1].s1 /datos1[region2-1][carreras.size()-1].tot);
     porcentajes1[region2-1][carreras.size()-1].s2 = 100*(datos1[region2-1][carreras.size()-1].s2 /datos1[region2-1][carreras.size()-1].tot);
     porcentajes1[region2-1][carreras.size()-1].s3 = 100*(datos1[region2-1][carreras.size()-1].s3 /datos1[region2-1][carreras.size()-1].tot);
@@ -445,7 +444,7 @@ system ("cls");
 
 void escoger_accion (string& ACCION) {
 
-while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" && ACCION!="6" && ACCION!="CONSULTAR" ) {
+while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" && ACCION!="6" && ACCION!="DISTINGUIR" ) {
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
@@ -464,7 +463,7 @@ cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       
 cout << "|                                                              |" << endl ;
 cout << "|   5. Leer todos los datos                                    |" << endl ;
 cout << "|                                                              |" << endl ;
-cout << "|   6. Consultar un umbral de personas que cobran x dinero     |" << endl ;
+cout << "|   6. Distinguir un umbral de personas que cobran x dinero    |" << endl ;
 cout << "|                                                              |" << endl ;
 cout << "----------------------------------------------------------------" << endl << endl ;
 cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
