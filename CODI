@@ -373,7 +373,6 @@ else if ( salario2 < 700 ) {
     porcentajes1[region2-1][carreras.size()-1].s7 = 100*(datos1[region2-1][carreras.size()-1].s7 /datos1[region2-1][carreras.size()-1].tot);
     porcentajes1[region2-1][carreras.size()-1].nocons = 100*(datos1[region2-1][carreras.size()-1].nocons /datos1[region2-1][carreras.size()-1].tot);
 
-region2 = 19
 
 }
 
