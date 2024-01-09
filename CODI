@@ -101,6 +101,132 @@ cout << "EMPLEO 1: " << CONS2[region1-1][grado1-1].noconspp << "%.      EMPLEO 2
 
 }
 
+void comparar_intervempleos2(int grado1, const tdatos& CONS1, const tporcentajes& CONS2) {
+
+int J;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+cout << "PORCENTAJE DE PERSONAS EN " << regiones[J] << " CON UN SALARIO:  <700 " << CONS2[J][grado1-1].pp1 << "%  700-999 " << CONS2[J][grado1-1].pp2 << "%  1000-1499 " << CONS2[J][grado1-1].pp3 << "%  1500-1999 ";
+cout << CONS2[J][grado1-1].pp4 << "%  2000-2499 " << CONS2[J][grado1-1].pp5 << "%  2500-2999 " << CONS2[J][grado1-1].pp6 << "%  >3000 " << CONS2[J][grado1-1].pp7 << "%  No_consta ";
+cout << CONS2[J][grado1-1].noconspp << "%." << endl << endl;
+
+}
+
+int pp1max, pp2max, pp3max, pp4max, pp5max, pp6max, pp7max, pp8max;
+double ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp1 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp1;
+
+    pp1max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp2 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp2;
+
+    pp2max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp3 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp3;
+
+    pp3max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp4 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp4;
+
+    pp4max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp5 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp5;
+
+    pp5max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp6 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp6;
+
+    pp6max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].pp6 > ppmax) {
+
+    ppmax = CONS2[J][grado1-1].pp6;
+
+    pp6max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN MENOS DE 700 ES " << regiones[pp1max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 700 Y 999 ES " << regiones[pp2max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 1000 Y 1499 ES " << regiones[pp3max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 1500 Y 1999 ES " << regiones[pp4max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 2000 Y 2499 ES " << regiones[pp5max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 2499 Y 2999 ES " << regiones[pp6max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN MAS DE 3000 ES " << regiones[pp7max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE NO ESPECIFICAN LO QUE COBRAN ES " << regiones[pp8max] << endl << endl;
+
+}
+
 void ACCION_4( const tdatos& CONS1) {
 setlocale (LC_ALL, "spanish");
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
