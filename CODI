@@ -1,4 +1,4 @@
-s#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <conio.h>
@@ -20,6 +20,8 @@ typedef tsueldo tdatos [18] [84] ;
 
 void escoger_accion (string& ACCION);
 void obten_consulta ( int region, int grado, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
+void comparar_intervempleos(int region1, int region2 , int grado1, int grado2, const tdatos& CONS1, const tdatos& CONS2);
+void comparar_intervempleos2(int grado1, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& regiones);
 void ACCION_3 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
 void ACCION_4( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) ;
 void ACCION_5(const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras);
@@ -190,10 +192,12 @@ for ( j = 0 ; j < carreras.size() ; j++) {
 
 }
 
+while ( respuesta2 != "SI" && respuesta2 != "si" && respuesta2 != "NO" && respuesta2 != "no" ) {
 cout << endl ;
 cout << "                                      DIGA SI NUESTRA BASE DE DATOS CUENTA CON SU GRADO O SECTOR " << endl ;
 cout << "                                          ( EXPRESE SU RESPUESTA CON SI O NO EN MAYUSCULAS )"  << endl << endl ;
 cout << "                                             CONTAMOS CON SU GRADO / SECTOR --> " ; cin >> respuesta2 ;
+}
 
 system ("cls");
 
@@ -213,14 +217,19 @@ for ( j = 0 ; j < carreras.size() ; j++) {
 
 }
 
+
 cout << endl ;
 cout << "                                          INTRODUCE EL SECTOR O GRADO QUE QUIERAS MODIFICAR " << endl ;
 cout << "                                    ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS O SECTORES )"  << endl << endl ;
 cout << "                                                     GRADO / SECTOR --> " ; cin >> Grado1 ; cout << endl;
 
+while ( Grado2 != "SECTOR" && Grado2 != "GRADO" ) {
+
 cout << "                              HAS INTRODUCIDO GRADO O SECTOR ( ESCRIBE GRADO O SECTOR EN MAYUSCULAS )--> " ; cin >> Grado2 ;
 
-system ("cls");
+}
+
+//system ("cls");
 
 if ( Grado2 == "GRADO" ) {
 cout << "                                  INTRODUCE TU SALARIO EN TU PRIMER EMPLEO DESPUES DE CURSAR EL GRADO  " << endl ;
@@ -235,6 +244,8 @@ cout << "                                                         ( UTILIZANDO N
 cout << "                                                            SALARIO --> " ; cin >> salario2 ;
 
 }
+
+Grado2 = " ";
 
 if ( salario2 >= 3000 ) {
 
@@ -307,7 +318,11 @@ cout << "                                                NOMBRE GRADO / SECTOR -
 
 carreras.push_back(Grado3);
 
-cout << "                             HAS INTRODUCIDO GRADO O SECTOR ( ESCRIBE GRADO O SECTOR EN MAYUSCULAS )--> " ; cin >> Grado2 ;
+while ( Grado2 != "SECTOR" && Grado2 != "GRADO" ) {
+
+cout << "                              HAS INTRODUCIDO GRADO O SECTOR ( ESCRIBE GRADO O SECTOR EN MAYUSCULAS )--> " ; cin >> Grado2 ;
+
+}
 
 system ("cls");
 
@@ -324,6 +339,8 @@ cout << "                                                         ( UTILIZANDO N
 cout << "                                                            SALARIO --> " ; cin >> salario2 ;
 
 }
+
+Grado2 = " ";
 
 if ( salario2 >= 3000 ) {
 
@@ -880,13 +897,13 @@ cout << "-----------------------------------------------------------------------
 cout << "|                                                           DATOS NUMERICOS                                                            |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
-cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|           SALARIO (EN EUROS)         | TOTAL HAN TRABAJADO |      MENOS 700     |    DE 700 a 999    |   DE 1000 a 1499   |   DE 1500 a 1999   |    DE 2000 a 2499  |   DE 2500 a 3000   |    MÁS DE 3000    |       NO CONSTA           |" <<endl;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA  |" <<endl;
  for ( int i = 0 ; i < 18 ; i++ )  {
     for ( int j = 0 ; j < carreras.size() ; j++ ) {
 cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS1[i][j].tot<<"|"<<CONS1[i][j].s1<<"|"<<CONS1[i][j].s2<<"|"<<CONS1[i][j].s3<<"|"<<CONS1[i][j].s4<<"|"<<CONS1[i][j].s5<<"|"<<CONS1[i][j].s6<<"|"<<CONS1[i][j].s7<<"|"<<CONS1[i][j].nocons<<"|" <<endl ;
 }}
-cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 
 
 }
@@ -897,13 +914,13 @@ cout << "-----------------------------------------------------------------------
 cout << "|                                                           DATOS EN PORCENTAJES                                                       |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
-cout << "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|         SALARIOS (EN EUROS)   | TOTAL HAN TRABAJADO |      MENOS 700   |    DE 700€ a 999  |  DE 1000€ a 1499  |  DE 1500 a 1999  |   DE 2000 a 2499 |  DE 2500 a 3000  |    MÁS DE 3000   |       NO CONSTA        |" <<endl;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA  |" <<endl;
  for ( int i = 0 ; i < 18 ; i++ )  {
     for ( int j = 0 ; j < carreras.size() ; j++ ) {
 cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS2[i][j].tot<<"|"<<CONS2[i][j].s1<<"|"<<CONS2[i][j].s2<<"|"<<CONS2[i][j].s3<<"|"<<CONS2[i][j].s4<<"|"<<CONS2[i][j].s5<<"|"<<CONS2[i][j].s6<<"|"<<CONS2[i][j].s7<<"|"<<CONS2[i][j].nocons<<"|" <<endl ;
 }}
-cout << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ " << endl ;
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 
 
 }
