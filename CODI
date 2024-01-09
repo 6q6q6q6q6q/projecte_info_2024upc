@@ -26,7 +26,7 @@ typedef tsueldo tdatos [18] [84] ;
 typedef tsueldos tporcentajes [18] [84] ;
 
 
-
+void escoger_accion (string& ACCION);
 void obten_consulta ( int region, int grado, const tdatos& CONS1, const tporcentajes& CONS2, const vector <string>& carreras );
 void comparar_intervempleos(int region1, int region2 , int grado1, int grado2, const tdatos& CONS1, const tporcentajes& CONS2);
 void comparar_intervempleos2(int grado1, const tdatos& CONS1, const tporcentajes& CONS2, const vector<string> regiones);
@@ -62,6 +62,9 @@ cout << "-----------------------------------------------------------------------
 
 int main () {
 
+if (!A || !B) {cout<<" USTED NO TIENE ALGUNO DE LOS FITXEROS: DATOS.txt o PORCENTAJES.txt"<<endl;} // LEE SI TE FALTA ALGUNO DE LOS FITXEROS
+
+else {
 system("color 0A");
 
 setlocale (LC_ALL, "spanish");
@@ -74,7 +77,7 @@ double totp, p1, p2, p3, p4, p5, p6, p7, p8;
 
 string pal, pal2, ACCION, z;
 
-vector<string> carreras ;  //S'ha de fer pero amb un vector
+vector<string> carreras ;
 
 vector<string> regiones = { "España", "Andalucia", "Aragon", "Asturias", "las islas Baleares", "Canarias", "Cantabria", "Castilla y Leon", "Castila y la Mancha", "Cataluña", "Valencia", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "el Pais Basco" , "La Rioja" };
 
@@ -110,40 +113,10 @@ for (i= 0 ; i < 714 ; i++ ) {
 
 
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 while ( z != "Y") {
 
-while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" ) {
+escoger_accion (ACCION);
 
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
-cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
-
-cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
-cout << "|                           Acciones                           |       |                     INFORMACION PROGRAMA                     |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   1. Consultar datos de salario en primer empleo             |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
-cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
-cout << "|   2. Introducir salario en primer empleo                     |       |  grados, estos datos se han dividido segun la region donde   |" << endl ;
-cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
-cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
-cout << "|                                                              |" << endl ;
-cout << "|   5. Leer todos los datos                                    |" << endl ;
-cout << "|                                                              |" << endl ;
-cout << "----------------------------------------------------------------" << endl << endl ;
-cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
-cout << "               ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES O LA PALABRA PRINCIPAL DE LA ACCION EN MAYUSCULAS )"  << endl << endl ;
-
-cout << "                                                     QUE DESEAS HACER ? " ; cin >> ACCION ;
-system ("cls");
-
-}
-
-
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -351,7 +324,7 @@ else if ( salario2 < 700 ) {
 else if ( respuesta2 == "NO" || respuesta2 == "no" ) {
 
 cout << endl ;
-cout << "                                    INTRODUCE EL SECTOR DODNE HA TRABAJADO O GRADO QUE HA ESTUDIADO " << endl ;
+cout << "                                    INTRODUCE EL SECTOR DONDE HA TRABAJADO O GRADO QUE HA ESTUDIADO " << endl ;
 cout << "                       ( EN CASO QUE QUIERA ESCRIBIR UN SECTOR LO HA DE HACERN EN MAYUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
 cout << "                        ( EN CASO QUE QUIERA ESCRIBIR UN GRADO LO HA DE HACERN EN MINUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
 cout << "                                                NOMBRE GRADO / SECTOR --> " ; cin >> Grado3 ; cout << endl;
@@ -590,7 +563,37 @@ system ("cls");
 }
 }
 }
+}
 
+void escoger_accion (string& ACCION) {
+while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" ) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                           Acciones                           |       |                     INFORMACION PROGRAMA                     |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. Consultar datos de salario en primer empleo             |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
+cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
+cout << "|   2. Introducir salario en primer empleo                     |       |  grados, estos datos se han dividido segun la region donde   |" << endl ;
+cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
+cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   5. Leer todos los datos                                    |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
+cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
+cout << "               ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES O LA PALABRA PRINCIPAL DE LA ACCION EN MAYUSCULAS )"  << endl << endl ;
+
+cout << "                                                     QUE DESEAS HACER ? " ; cin >> ACCION ;
+system ("cls");
+
+}
+}
 void obten_consulta ( int region, int grado, const tdatos& CONS1, const tporcentajes& CONS2, const vector <string>& carreras ) {
 
 cout << endl << "Los datos del salario en el primer trabajo de este sector se presentan mostrando el numero de personas que cobra un salario entre un" << endl ;
