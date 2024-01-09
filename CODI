@@ -35,6 +35,8 @@ typedef tsueldos tporcentajes [18] [84] ;
 
 vector<string> carreras ;  //S'ha de fer pero amb un vector
 
+vector<string> regiones = { "España", "Andalucia", "Aragon", "Asturias", "las islas Baleares", "Canarias", "Cantabria", "Catilla y Leon", "Castila y la Mancha", "Cataluña", "Valencia", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "el Pais Basco" , "La Rioja" };
+
 void obten_consulta ( int region, int grado, const tdatos& CONS1, const tporcentajes& CONS2 ) {
 
 cout << endl << "Los datos del salario en el primer trabajo de este sector se presentan mostrando el numero de personas que cobra un salario entre un" << endl ;
