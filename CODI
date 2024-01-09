@@ -20,8 +20,6 @@ typedef tsueldo tdatos [18] [84] ;
 
 void escoger_accion (string& ACCION);
 void obten_consulta ( int region, int grado, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
-void comparar_intervempleos(int region1, int region2 , int grado1, int grado2, const tdatos& CONS1, const tdatos& CONS2);
-void comparar_intervempleos2(int grado1, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& regiones);
 void ACCION_3 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
 void ACCION_4( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) ;
 void ACCION_5(const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras);
