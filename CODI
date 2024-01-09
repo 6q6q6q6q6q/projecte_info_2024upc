@@ -778,6 +778,10 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
+if ( grado3 == grado4 && region3 == region4 ) cout << "EL PROGRAMA NO PUEDE REALIZAR ESTA ACCION PORQUE HA ELEGIDO LA MISMA CARRERA EN LA MISMA REGION" << endl << endl ;
+
+else {
+
 cout << "Total de trabajadores registrados en el empleo 1: " << CONS1[region3-1][grado3-1].tot << endl ;
 cout << "Total de trabajadores registrados en el empleo 2: " << CONS1[region4-1][grado4-1].tot << endl << endl << endl;
 cout << "Trabajadores con salario de menos de 700€ mensuales: " << endl ;
@@ -796,6 +800,8 @@ cout << "Trabajadores con salario de mas de 3000€ mensuales: " << endl ;
 cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s7 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s7 << "%." << endl << endl;
 cout << "Trabajadores cuyo salario no costa en la base de datos: " << endl;
 cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].nocons << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].nocons << "%." << endl << endl << endl;
+
+}
 
 }
 
