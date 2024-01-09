@@ -866,12 +866,12 @@ while (opcio!=1 && opcio!=2) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<e
 system("cls");
 
 vector <string> comunitats (19);
-comunitats[1] = "NACIONAL";comunitats[2] = "ANDALUCÍA";comunitats[3] = "ARAGÓN";
-comunitats[4] = "PRINCIPADO DE ASTURIAS";comunitats[5] = "ISLAS BALEARES";comunitats[6] = "CANARIAS";
-comunitats[7] = "CANTABRIA";comunitats[8] = "CASTILLA Y LEÓN";comunitats[9] = "CASTILLA LA MANCHA";
-comunitats[10] = "CATALUÑA";comunitats[11] = "COMUNITAT VALENCIANA";comunitats[12] = "EXTREMADURA";
-comunitats[13] = "GALICIA";comunitats[14] = "MADRID";comunitats[15] = "MURCIA";
-comunitats[16] = "NAVARRA";comunitats[17] = "PAÍS VASCO"; comunitats[18] = "LA RIOJA";
+comunitats[0] = "NACIONAL";comunitats[1] = "ANDALUCÍA";comunitats[2] = "ARAGÓN";
+comunitats[3] = "PRINCIPADO DE ASTURIAS";comunitats[4] = "ISLAS BALEARES";comunitats[5] = "CANARIAS";
+comunitats[6] = "CANTABRIA";comunitats[7] = "CASTILLA Y LEÓN";comunitats[8] = "CASTILLA LA MANCHA";
+comunitats[9] = "CATALUÑA";comunitats[10] = "COMUNITAT VALENCIANA";comunitats[11] = "EXTREMADURA";
+comunitats[12] = "GALICIA";comunitats[13] = "MADRID";comunitats[14] = "MURCIA";
+comunitats[15] = "NAVARRA";comunitats[16] = "PAÍS VASCO"; comunitats[17] = "LA RIOJA";
 
 
 if (opcio==1) {
