@@ -38,7 +38,7 @@ void escribe_comunidades();
 
 int main () {
 
-if (!A || !B) {cout<<" USTED NO TIENE ALGUNO DE LOS FITXEROS: DATOS.txt o PORCENTAJES.txt"<<endl;} // LEE SI TE FALTA ALGUNO DE LOS FITXEROS
+if (!A || !B) {cout<<" USTED NO TIENE ALGUNO DE LOS FICHEROS: DATOS.txt o PORCENTAJES.txt"<<endl;} // LEE SI TE FALTA ALGUNO DE LOS FITXEROS
 
 else {
 
@@ -105,7 +105,7 @@ if ( ACCION == "1" || ACCION == "CONSULTAR") {
 
 ACCION_1 ( datos1, porcentajes1, carreras, regiones );
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -121,7 +121,7 @@ else if ( ACCION == "2" || ACCION == "INTRODUCIR") {
         string respuesta2;
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                     INTRODUCIR DATOS DE SUELDOS DE  PRIMER EMPLEO SEGUN ESTUDIOS                                     |" << endl ;
+cout << "|                                     INTRODUCIR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
@@ -130,7 +130,7 @@ cout << "|                                                                      
 cout << "|      1. Selecciona la region donde quiere añadir su registro       2. Diga si nuestra base de datos cuenta con su grado o sector    |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "|      3. En caso que la base de datos cuente con su grado o sector, indique cual de ellos es, si nuestra base de datos no cuenta     |" << endl ;
-cout << "|         con su carrera, inroduce por texto el nombre de su grado.                                                                   |" << endl ;
+cout << "|         con su carrera, introduce por texto el nombre de su grado.                                                                  |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "|                                                   4. Indique cual es su salario                                                     |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
@@ -139,7 +139,7 @@ cout << "-----------------------------------------------------------------------
 escribe_comunidades();
 
 while ( region2 < 0 || region2 > 18 ) {
-cout << "                                               INTORDUCE LA REGION QUE DESEAS REALIZAR " << endl ;
+cout << "                                                      INTORDUCE LA REGION A EDITAR " << endl ;
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
 cout << "                                                             REGION --> " ; cin >> region2 ;
 
@@ -163,7 +163,7 @@ while ( respuesta2 != "SI" && respuesta2 != "si" && respuesta2 != "NO" && respue
 cout << endl ;
 cout << "                                      DIGA SI NUESTRA BASE DE DATOS CUENTA CON SU GRADO O SECTOR " << endl ;
 cout << "                                          ( EXPRESE SU RESPUESTA CON SI O NO EN MAYUSCULAS )"  << endl << endl ;
-cout << "                                             CONTAMOS CON SU GRADO / SECTOR --> " ; cin >> respuesta2 ;
+cout << "                                             CONTAMOS CON SU GRADO / SECTOR ? --> " ; cin >> respuesta2 ;
 }
 
 system ("cls");
@@ -282,8 +282,8 @@ else if ( respuesta2 == "NO" || respuesta2 == "no" ) {
 
 cout << endl ;
 cout << "                                    INTRODUCE EL SECTOR DODNE HA TRABAJADO O GRADO QUE HA ESTUDIADO " << endl ;
-cout << "                       ( EN CASO QUE QUIERA ESCRIBIR UN SECTOR LO HA DE HACERN EN MAYUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
-cout << "                        ( EN CASO QUE QUIERA ESCRIBIR UN GRADO LO HA DE HACERN EN MINUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
+cout << "                       ( EN CASO QUE QUIERA ESCRIBIR UN SECTOR LO DEBE DE HACER EN MAYUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
+cout << "                        ( EN CASO QUE QUIERA ESCRIBIR UN GRADO LO DEBE DE HACER EN MINUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
 cout << "                                                NOMBRE GRADO / SECTOR --> " ; cin >> Grado3 ; cout << endl;
 
 carreras.push_back(Grado3);
@@ -304,7 +304,7 @@ cout << "                                                            SALARIO -->
 }
 
 else if ( Grado2 == "SECTOR" ) {
-cout << "                                  INTRODUCE TU SALARIO EN TU PRIMER EMPLEO RELACIONADO CON ESTE SECTOR  " << endl ;
+cout << "                                     INTRODUCE TU SALARIO EN TU PRIMER EMPLEO RELACIONADO CON ESTE SECTOR  " << endl ;
 cout << "                                                         ( UTILIZANDO NUMEROS )"  << endl << endl ;
 cout << "                                                            SALARIO --> " ; cin >> salario2 ;
 
@@ -377,7 +377,7 @@ region2 = 19
 
 }
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << " INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -391,7 +391,7 @@ else if ( ACCION == "3" || ACCION == "COMPARAR") {
 
 ACCION_3 ( datos1, porcentajes1, carreras, regiones );
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << " INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -406,7 +406,7 @@ else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
 ACCION_4 (datos1,regiones, carreras);
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
 
 ACCION = "O";
 
@@ -421,7 +421,7 @@ else if ( ACCION == "5" || ACCION == "LEER") {
 
 ACCION_5(datos1, porcentajes1, carreras);
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -433,7 +433,7 @@ else if (ACCION=="6" || ACCION=="CONSULTAR") {
 
 ACCION_6(porcentajes1, carreras);
 
-cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+cout << "INTRODUCE "Y" PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
 
 ACCION = "O";
 
@@ -464,9 +464,9 @@ cout << "|                           Acciones                           |       
 cout << "|                                                              |       |                                                              |" << endl ;
 cout << "|   1. Consultar datos de salario en primer empleo             |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
 cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
-cout << "|   2. Introducir salario en primer empleo                     |       |  grados, estos datos se han dividido segun la region donde   |" << endl ;
-cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
-cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
+cout << "|   2. Introducir salario en primer empleo                     |       |  grados. Estos datos se han dividido segun la region donde   |" << endl ;
+cout << "|                                                              |       |  se ha practicado el empleo, contando también con una base   |" << endl ;
+cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  de datos total del pais.                                    |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
 cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
 cout << "|                                                              |" << endl ;
@@ -522,7 +522,7 @@ cout << "-----------------------------------------------------------------------
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
-cout << "|      1. Selecciona la region buscada o españa en su totalidad        2. Selecionar el grado o sector donde consultar los datos      |" << endl ;
+cout << "|      1. Selecciona la region buscada o España en su totalidad        2. Selecionar el grado o sector donde consultar los datos      |" << endl ;
 cout << "|                                                                                                                                     |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
@@ -593,7 +593,7 @@ cout << "|                                                                      
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 
 cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES )"  << endl << endl ;
-cout << "                                                     ¿ QUE DESEA HACER ? --> " ; cin >> COMPARACION ; cout << endl << endl;
+cout << "                                                      QUE DESEA HACER ? --> " ; cin >> COMPARACION ; cout << endl << endl;
 
 
 if (COMPARACION == 1) {
@@ -737,14 +737,14 @@ if ( CONS2[J][grado3-1].nocons >= ppmax) {
 ppmax = 0.0;
 
 
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN MENOS DE 700 ES " << regiones[s1max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 700 Y 999 ES " << regiones[s2max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 1000 Y 1499 ES " << regiones[s3max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 1500 Y 1999 ES " << regiones[s4max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 2000 Y 2499 ES " << regiones[s5max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN ENTRE 2499 Y 2999 ES " << regiones[s6max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE COBRAN MAS DE 3000 ES " << regiones[s7max] << endl << endl;
-cout << "LA REGION DONDE HAY MAS PORCENTAGE DE PERSONAS QUE NO ESPECIFICAN LO QUE COBRAN ES " << regiones[pp8max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN MENOS DE 700 ES " << regiones[s1max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 700 Y 999 ES " << regiones[s2max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 1000 Y 1499 ES " << regiones[s3max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 1500 Y 1999 ES " << regiones[s4max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 2000 Y 2499 ES " << regiones[s5max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 2499 Y 2999 ES " << regiones[s6max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN MAS DE 3000 ES " << regiones[s7max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE NO ESPECIFICAN LO QUE COBRAN ES " << regiones[pp8max] << endl << endl;
 
 }
 
@@ -802,7 +802,7 @@ cout << "                                                             GRADO --> 
 
 system ("cls");
 
-if ( grado3 == grado4 && region3 == region4 ) cout << "EL PROGRAMA NO PUEDE REALIZAR ESTA ACCION PORQUE HA ELEGIDO LA MISMA CARRERA EN LA MISMA REGION" << endl << endl ;
+if ( grado3 == grado4 && region3 == region4 ) cout << "EL PROGRAMA NO PUEDE REALIZAR ESTA ACCION PORQUE HA ELEGIDO LA MISMA CARRERA EN LA MISMA REGION..." << endl << endl ;
 
 else {
 
@@ -836,7 +836,7 @@ cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].nocons << "%.      EMPLEO 2: 
 void ACCION_4( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) {
 setlocale (LC_ALL, "spanish");
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|                                       BUSCADOR DEL SECTOR DÓNDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
+cout << "|                                       BUSCADOR DEL SECTOR DONDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
 cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
@@ -901,7 +901,7 @@ cout << "-----------------------------------------------------------------------
 cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
 cout << "|                   Datos disponibles                          |       |                     INFORMACION DE LA ACCIÓN                 |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   1. Datos numericos                                         |       |   ATENCIÓN !!! Esta acción puede tardar un tiempo en         |" << endl ;
+cout << "|   1. Datos numericos                                         |       |   ATENCIÓN!!!  Esta acción puede tardar un tiempo en         |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
 cout << "|                                                              |       |                ejecutarse del todo, debido a la gran         |" << endl ;
 cout << "|   2. Porcentajes                                             |       |                                                              |" << endl ;
@@ -935,7 +935,7 @@ cout << "|                                                           DATOS NUMER
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
 cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA  |" <<endl;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA |" <<endl;
  for ( int i = 0 ; i < 18 ; i++ )  {
     for ( int j = 0 ; j < carreras.size() ; j++ ) {
 cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS1[i][j].tot<<"|"<<CONS1[i][j].s1<<"|"<<CONS1[i][j].s2<<"|"<<CONS1[i][j].s3<<"|"<<CONS1[i][j].s4<<"|"<<CONS1[i][j].s5<<"|"<<CONS1[i][j].s6<<"|"<<CONS1[i][j].s7<<"|"<<CONS1[i][j].nocons<<"|" <<endl ;
@@ -952,7 +952,7 @@ cout << "|                                                           DATOS EN PO
 cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
 
 cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
-cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA  |" <<endl;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA |" <<endl;
  for ( int i = 0 ; i < 18 ; i++ )  {
     for ( int j = 0 ; j < carreras.size() ; j++ ) {
 cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS2[i][j].tot<<"|"<<CONS2[i][j].s1<<"|"<<CONS2[i][j].s2<<"|"<<CONS2[i][j].s3<<"|"<<CONS2[i][j].s4<<"|"<<CONS2[i][j].s5<<"|"<<CONS2[i][j].s6<<"|"<<CONS2[i][j].s7<<"|"<<CONS2[i][j].nocons<<"|" <<endl ;
