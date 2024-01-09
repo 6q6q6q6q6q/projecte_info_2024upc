@@ -192,7 +192,7 @@ system ("cls");
 
 obten_consulta ( Region1, Grado1, datos1, porcentajes1, carreras );
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -438,7 +438,7 @@ else if ( salario2 < 700 ) {
 
 }
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -487,7 +487,7 @@ cout << "                                                             GRADO --> 
 
 comparar_intervempleos2( grado3, datos1, porcentajes1, regiones ) ;
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -555,7 +555,7 @@ comparar_intervempleos( region3, region4, grado3, grado4, datos1, porcentajes1 )
 
 }
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -568,7 +568,7 @@ else if ( ACCION == "4" || ACCION == "BUSCAR") {
 
 ACCION_4 (datos1,regiones, carreras);
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
@@ -581,7 +581,7 @@ else if ( ACCION == "5" || ACCION == "LEER") {
 
 ACCION_5(datos1, porcentajes1, carreras);
 
-cout << "INTRODUCE X PARA VOLVER AL INICIO O Y PARA SALIR " ; cin >> z ;
+cout << "INTRODUCE Y PARA SALIR O QUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
 
 ACCION = "O";
 
