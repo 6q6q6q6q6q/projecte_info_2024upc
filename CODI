@@ -439,11 +439,11 @@ cout << "|   2. Introducir salario en primer empleo                     |       
 cout << "|                                                              |       |  se ha practicado el empleo, contando  tmb con una base de   |" << endl ;
 cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  datos total del pais                                        |" << endl ;
 cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       |                                                              |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "|   5. Leer todos los datos                                    |       |                                                              |" << endl ;
-cout << "|                                                              |       |                                                              |" << endl ;
-cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl << endl ;
+cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   5. Leer todos los datos                                    |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
 cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
 cout << "               ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES O LA PALABRA PRINCIPAL DE LA ACCION EN MAYUSCULAS )"  << endl << endl ;
 
