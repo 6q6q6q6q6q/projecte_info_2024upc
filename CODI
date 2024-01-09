@@ -842,11 +842,7 @@ system ("cls");
 
 }
 
-else if ( ACCION == "5" || ACCION == "LEER") {
 
-ACCION_5(datos1, porcentajes1);
-
-}
 else if ( ACCION == "5" || ACCION == "LEER") {
 
 ACCION_5(datos1, porcentajes1);
