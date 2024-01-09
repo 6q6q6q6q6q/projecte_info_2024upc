@@ -120,7 +120,7 @@ double ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp1 > ppmax) {
+if ( CONS2[J][grado1-1].pp1 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp1;
 
@@ -134,7 +134,7 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp2 > ppmax) {
+if ( CONS2[J][grado1-1].pp2 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp2;
 
@@ -148,7 +148,7 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp3 > ppmax) {
+if ( CONS2[J][grado1-1].pp3 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp3;
 
@@ -162,7 +162,7 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp4 > ppmax) {
+if ( CONS2[J][grado1-1].pp4 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp4;
 
@@ -176,7 +176,7 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp5 > ppmax) {
+if ( CONS2[J][grado1-1].pp5 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp5;
 
@@ -191,7 +191,7 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp6 > ppmax) {
+if ( CONS2[J][grado1-1].pp6 >= ppmax) {
 
     ppmax = CONS2[J][grado1-1].pp6;
 
@@ -205,11 +205,25 @@ ppmax = 0.0;
 
 for ( J = 0 ; J < 18 ; J++) {
 
-if ( CONS2[J][grado1-1].pp6 > ppmax) {
+if ( CONS2[J][grado1-1].pp7 >= ppmax) {
 
-    ppmax = CONS2[J][grado1-1].pp6;
+    ppmax = CONS2[J][grado1-1].pp7;
 
-    pp6max = J;
+    pp7max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado1-1].noconspp >= ppmax) {
+
+    ppmax = CONS2[J][grado1-1].noconspp;
+
+    pp8max = J;
 
 }
 
