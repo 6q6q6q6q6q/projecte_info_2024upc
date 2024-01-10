@@ -1,0 +1,1068 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <conio.h>
+#include <wchar.h>
+
+using namespace std ;
+
+ifstream A ("DATOS.txt");
+ifstream B ("PORCENTAJES.txt");
+
+
+struct tsueldo {
+
+double tot, s1, s2, s3, s4, s5, s6, s7, nocons;
+
+};
+
+typedef tsueldo tdatos [18] [84] ;
+
+
+void escoger_accion (string& ACCION);
+void obten_consulta ( int region, int grado, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
+void comparar_intervempleos(int region1, int region2 , int grado1, int grado2, const tdatos& CONS1, const tdatos& CONS2);
+void comparar_intervempleos2(int grado1, const tdatos& CONS1, const tdatos& CONS2, const vector <string>& regiones);
+void ACCION_1( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
+void ACCION_2 ( tdatos datos1, tdatos porcentajes1, vector<string>& carreras, const vector <string>& regiones );
+void ACCION_3 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones );
+void ACCION_4 ( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) ;
+void ACCION_5 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras);
+void ACCION_6 ( const tdatos& CONS2,  const vector <string>& carreras);
+void escribe_comunidades();
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+int main () {
+
+if (!A || !B) {cout<<" USTED NO TIENE ALGUNO DE LOS FICHEROS: DATOS.txt o PORCENTAJES.txt"<<endl;} // LEE SI TE FALTA ALGUNO DE LOS FITXEROS
+
+else {
+
+system("color 9F");
+
+setlocale (LC_ALL, "spanish");
+
+int num_carreras = 42;
+
+int i, j, x, tott, t1, t2, t3, t4, t5, t6, t7, t8;
+
+double totp, p1, p2, p3, p4, p5, p6, p7, p8;
+
+string pal, pal2, ACCION, z;
+
+vector<string> carreras ;  //S'ha de fer pero amb un vector
+
+vector<string> regiones = { "España", "Andalucia", "Aragon", "Asturias", "las islas Baleares", "Canarias", "Cantabria", "Castilla y Leon", "Castila y la Mancha", "Cataluña", "Valencia", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "el Pais Basco" , "La Rioja" };
+
+tdatos datos1;
+
+tdatos porcentajes1;
+
+for ( i = 0 ; i < 18 ; i++ ) {
+
+    for ( j = 0 ; j < 42 ; j++ ) {
+
+    A >> pal >> tott >> t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8;
+
+    B >> pal2 >> totp >> p1 >> p2 >> p3 >> p4 >> p5 >> p6 >> p7 >> p8;
+
+    datos1[i][j].tot = tott; datos1[i][j].s1 = t1; datos1[i][j].s2 = t2; datos1[i][j].s3 = t3; datos1[i][j].s4 = t4; datos1[i][j].s5 = t5; datos1[i][j].s6 = t6;
+    datos1[i][j].s7 = t7; datos1[i][j].nocons = t8;
+
+    porcentajes1[i][j].tot = totp; porcentajes1[i][j].s1 = p1; porcentajes1[i][j].s2 = p2; porcentajes1[i][j].s3 = p3; porcentajes1[i][j].s4 = p4;
+    porcentajes1[i][j].s5 = p5; porcentajes1[i][j].s6 = p6; porcentajes1[i][j].s7 = p7; porcentajes1[i][j].nocons = p8;
+
+    carreras.push_back(pal) ;
+
+    }
+
+}
+
+for (i= 0 ; i < 714 ; i++ ) {
+
+    carreras.pop_back();
+
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+while ( z != "Y") {
+
+escoger_accion (ACCION);
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+if ( ACCION == "1" || ACCION == "CONSULTAR") {
+
+ACCION_1 ( datos1, porcentajes1, carreras, regiones );
+
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+else if ( ACCION == "2" || ACCION == "INTRODUCIR") {
+
+ACCION_2 (datos1, porcentajes1, carreras, regiones);
+
+cout << " INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+else if ( ACCION == "3" || ACCION == "COMPARAR") {
+
+ACCION_3 ( datos1, porcentajes1, carreras, regiones );
+
+cout << " INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+else if ( ACCION == "4" || ACCION == "BUSCAR") {
+
+
+ACCION_4 (datos1,regiones, carreras);
+
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+else if ( ACCION == "5" || ACCION == "LEER") {
+
+ACCION_5(datos1, porcentajes1, carreras);
+
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO " ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+else if (ACCION=="6" || ACCION=="CONSULTAR") {
+
+ACCION_6(porcentajes1, carreras);
+
+cout << "INTRODUCE 'Y' PARA SALIR O CUALQUIER OTRA TECLA PARA VOLVER AL INICIO" ; cin >> z ;
+
+ACCION = "O";
+
+system ("cls");
+}
+
+}
+}
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+void escoger_accion (string& ACCION) {
+
+while ( ACCION != "1" && ACCION != "CONSULTAR" && ACCION != "2" && ACCION != "3" && ACCION != "INTRODUCIR" && ACCION != "COMPARAR" && ACCION != "BUSCAR" && ACCION != "4" && ACCION != "LEER" && ACCION != "5" && ACCION!="6" && ACCION!="DISTINGUIR" ) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|   EL_TEU_PRIMER_SOU - Encuentra toda la informacion sobre el primer sueldo de los estudiantes de las diferentes carreras de España  |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                           Acciones                           |       |                     INFORMACION PROGRAMA                     |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. Consultar datos de salario en primer empleo             |       |  Este programa ofrece una base de datos con la informacion   |" << endl ;
+cout << "|                                                              |       |  del  salario  inicial  de los  estudiantes  de diferentes   |" << endl ;
+cout << "|   2. Introducir salario en primer empleo                     |       |  grados. Estos datos se han dividido segun la region donde   |" << endl ;
+cout << "|                                                              |       |  se ha practicado el empleo, contando también con una base   |" << endl ;
+cout << "|   3. Comparar salarios de un empleo en diferentes regiones   |       |  de datos total del pais.                                    |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   4. Buscar en que sector hay mas trabajadores nuevos        |       ----------------------------------------------------------------" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   5. Leer todos los datos                                    |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   6. Distinguir un umbral de personas que cobran x dinero    |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
+cout << "                                               INTORDUCE LA ACCION QUE DESEAS REALIZAR " << endl ;
+cout << "               ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES O LA PALABRA PRINCIPAL DE LA ACCION EN MAYUSCULAS )"  << endl << endl ;
+
+cout << "                                                     QUE DESEAS HACER ? " ; cin >> ACCION ;
+system ("cls");
+
+}
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void escribe_comunidades() {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_1 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones ) {
+
+int Region1, Grado1;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                     CONSULTAR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                      |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Selecciona la region buscada o España en su totalidad        2. Selecionar el grado o sector donde consultar los datos      |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+escribe_comunidades();
+
+cout << "                                              INTORDUCE LA REGION DONDE DESEAS BUSCAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> Region1 ;
+
+system ("cls");
+
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                       SECTORES Y GRADOS A CONSULTAR                                                 |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+int j,k = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << k << "  ----- " << carreras[j] << endl ; k++;
+
+}
+
+cout << endl ;
+cout << "                                           INTRODUCE EL SECTOR O GRADO QUE QUIERAS CONSULTAR " << endl ;
+cout << "                                    ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS O SECTORES )"  << endl << endl ;
+cout << "                                                     GRADO / SECTOR --> " ; cin >> Grado1 ;
+
+system ("cls");
+
+cout << endl << "Los datos del salario en el primer trabajo de este sector se presentan mostrando el numero de personas que cobra un salario entre un" << endl ;
+cout << "intervalo, así como el porcentaje que supone respecto el total de personas que constan en nuestra base de datos" << endl << endl ;
+
+cout << "Los resultados para la carrera / sector " << carreras[Grado1-1] << " en " << regiones[Region1-1] << " son:" << endl << endl ;
+cout << "Total de trabajadores registrados " << CONS1[Region1-1][Grado1-1].tot << endl << endl;
+cout << "Trabajadores con salario de menos de 700€ mensuales: " << CONS1[Region1-1][Grado1-1].s1 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s1 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 700€ y 999€ mensuales: " << CONS1[Region1-1][Grado1-1].s2 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s2 << "%." << endl <<endl;
+cout << "Trabajadores con salario entre 1000€ y 1499€ mensuales: " << CONS1[Region1-1][Grado1-1].s3 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s3 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 1500€ y 1999€ mensuales: " << CONS1[Region1-1][Grado1-1].s4 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s4 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 2000€ y 2499€ mensuales: " << CONS1[Region1-1][Grado1-1].s5 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s5 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 2500€ y 2999€ mensuales: " << CONS1[Region1-1][Grado1-1].s6 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s6 << "%." << endl << endl;
+cout << "Trabajadores con salario de mas de 3000€ mensuales: " << CONS1[Region1-1][Grado1-1].s7 << ", que suponen un " << CONS2[Region1-1][Grado1-1].s7 << "%." << endl << endl;
+cout << "Trabajadores cuyo salario no costa en la base de datos: " << CONS1[Region1-1][Grado1-1].nocons << ", que suponen un " << CONS2[Region1-1][Grado1-1].nocons << "%." << endl << endl << endl;
+
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_2 ( tdatos datos1, tdatos porcentajes1, vector<string>& carreras, const vector <string>& regiones ) {
+
+        int region2, j;
+        string respuesta2;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                     INTRODUCIR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Selecciona la region donde quiere añadir su registro       2. Diga si nuestra base de datos cuenta con su grado o sector    |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      3. En caso que la base de datos cuente con su grado o sector, indique cual de ellos es, si nuestra base de datos no cuenta     |" << endl ;
+cout << "|         con su carrera, introduce por texto el nombre de su grado.                                                                  |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|                                                   4. Indique cual es su salario                                                     |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+escribe_comunidades();
+
+cout << "                                                      INTORDUCE LA REGION A EDITAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> region2 ;
+
+
+system ("cls");
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                       SECTORES Y GRADOS A CONSULTAR                                                  |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+int k = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << k << "  ----- " << carreras[j] << endl ; k++;
+
+}
+
+while ( respuesta2 != "SI" && respuesta2 != "si" && respuesta2 != "NO" && respuesta2 != "no" ) {
+cout << endl ;
+cout << "                                      DIGA SI NUESTRA BASE DE DATOS CUENTA CON SU GRADO O SECTOR " << endl ;
+cout << "                                          ( EXPRESE SU RESPUESTA CON SI O NO EN MAYUSCULAS )"  << endl << endl ;
+cout << "                                             CONTAMOS CON SU GRADO / SECTOR ? --> " ; cin >> respuesta2 ;
+}
+
+system ("cls");
+
+int Grado1; string Grado2; string Grado3; double salario2;
+
+if ( respuesta2 == "SI" || respuesta2 == "si" ) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                       SECTORES Y GRADOS A CONSULTAR                                                 |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+int l = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
+
+
+cout << endl ;
+cout << "                                          INTRODUCE EL SECTOR O GRADO QUE QUIERAS MODIFICAR " << endl ;
+cout << "                                    ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS O SECTORES )"  << endl << endl ;
+cout << "                                                     GRADO / SECTOR --> " ; cin >> Grado1 ; cout << endl;
+
+while ( Grado2 != "SECTOR" && Grado2 != "GRADO" ) {
+
+cout << "                              HAS INTRODUCIDO GRADO O SECTOR ( ESCRIBE GRADO O SECTOR EN MAYUSCULAS )--> " ; cin >> Grado2 ;
+
+}
+
+//system ("cls");
+
+if ( Grado2 == "GRADO" ) {
+cout << "                                  INTRODUCE TU SALARIO EN TU PRIMER EMPLEO DESPUES DE CURSAR EL GRADO  " << endl ;
+cout << "                                                         ( UTILIZANDO NUMEROS )"  << endl << endl ;
+cout << "                                                            SALARIO --> " ; cin >> salario2 ;
+
+}
+
+else if ( Grado2 == "SECTOR" ) {
+cout << "                                  INTRODUCE TU SALARIO EN TU PRIMER EMPLEO RELACIONADO CON ESTE SECTOR  " << endl ;
+cout << "                                                         ( UTILIZANDO NUMEROS )"  << endl << endl ;
+cout << "                                                            SALARIO --> " ; cin >> salario2 ;
+
+}
+
+Grado2 = " ";
+
+if ( salario2 >= 3000 ) {
+
+    datos1[region2-1][Grado1-1].s7++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 2500 ) {
+
+    datos1[region2-1][Grado1-1].s6++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 2000 ) {
+
+    datos1[region2-1][Grado1-1].s5++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 1500 ) {
+
+    datos1[region2-1][Grado1-1].s4++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 1000 ) {
+
+    datos1[region2-1][Grado1-1].s3++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 700 ) {
+
+    datos1[region2-1][Grado1-1].s2++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 < 700 ) {
+
+    datos1[region2-1][Grado1-1].s1++;
+    datos1[region2-1][Grado1-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+
+    porcentajes1[region2-1][Grado1-1].tot = 100;
+    porcentajes1[region2-1][Grado1-1].s1 = 100*(datos1[region2-1][Grado1-1].s1 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s2 = 100*(datos1[region2-1][Grado1-1].s2 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s3 = 100*(datos1[region2-1][Grado1-1].s3 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s4 = 100*(datos1[region2-1][Grado1-1].s4 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s5 = 100*(datos1[region2-1][Grado1-1].s5 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s6 = 100*(datos1[region2-1][Grado1-1].s6 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].s7 = 100*(datos1[region2-1][Grado1-1].s7 /datos1[region2-1][Grado1-1].tot);
+    porcentajes1[region2-1][Grado1-1].nocons = 100*(datos1[region2-1][Grado1-1].nocons /datos1[region2-1][Grado1-1].tot);
+
+}
+
+else if ( respuesta2 == "NO" || respuesta2 == "no" ) {
+
+cout << endl ;
+cout << "                                    INTRODUCE EL SECTOR DODNE HA TRABAJADO O GRADO QUE HA ESTUDIADO " << endl ;
+cout << "                       ( EN CASO QUE QUIERA ESCRIBIR UN SECTOR LO DEBE DE HACER EN MAYUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
+cout << "                        ( EN CASO QUE QUIERA ESCRIBIR UN GRADO LO DEBE DE HACER EN MINUSCULAS Y SUBSTITUYENDO LOS ESPACIOS POR _ )"  << endl << endl ;
+cout << "                                                NOMBRE GRADO / SECTOR --> " ; cin >> Grado3 ; cout << endl;
+
+carreras.push_back(Grado3);
+
+while ( Grado2 != "SECTOR" && Grado2 != "GRADO" ) {
+
+cout << "                              HAS INTRODUCIDO GRADO O SECTOR ( ESCRIBE GRADO O SECTOR EN MAYUSCULAS )--> " ; cin >> Grado2 ;
+
+}
+
+system ("cls");
+
+if ( Grado2 == "GRADO" ) {
+cout << "                                  INTRODUCE TU SALARIO EN TU PRIMER EMPLEO DESPUES DE CURSAR EL GRADO  " << endl ;
+cout << "                                                         ( UTILIZANDO NUMEROS )"  << endl << endl ;
+cout << "                                                            SALARIO --> " ; cin >> salario2 ;
+
+}
+
+else if ( Grado2 == "SECTOR" ) {
+cout << "                                     INTRODUCE TU SALARIO EN TU PRIMER EMPLEO RELACIONADO CON ESTE SECTOR  " << endl ;
+cout << "                                                         ( UTILIZANDO NUMEROS )"  << endl << endl ;
+cout << "                                                            SALARIO --> " ; cin >> salario2 ;
+
+}
+
+Grado2 = " ";
+
+if ( salario2 >= 3000 ) {
+
+    datos1[region2-1][carreras.size()-1].s7++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 2500 ) {
+
+    datos1[region2-1][carreras.size()-1].s6++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 2000 ) {
+
+    datos1[region2-1][carreras.size()-1].s5++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 1500 ) {
+
+    datos1[region2-1][carreras.size()-1].s4++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 1000 ) {
+
+    datos1[region2-1][carreras.size()-1].s3++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 >= 700 ) {
+
+    datos1[region2-1][carreras.size()-1].s2++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+}
+else if ( salario2 < 700 ) {
+
+    datos1[region2-1][carreras.size()-1].s1++;
+    datos1[region2-1][carreras.size()-1].tot++;
+    cout << endl << "HAS INTRODUCIDO BIEN TU SALARIO EN NUESTRA BASE DE DATOS" << endl << endl ;
+
+
+}
+
+    porcentajes1[region2-1][Grado1-1].tot = 100;
+    porcentajes1[region2-1][carreras.size()-1].s1 = 100*(datos1[region2-1][carreras.size()-1].s1 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s2 = 100*(datos1[region2-1][carreras.size()-1].s2 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s3 = 100*(datos1[region2-1][carreras.size()-1].s3 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s4 = 100*(datos1[region2-1][carreras.size()-1].s4 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s5 = 100*(datos1[region2-1][carreras.size()-1].s5 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s6 = 100*(datos1[region2-1][carreras.size()-1].s6 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].s7 = 100*(datos1[region2-1][carreras.size()-1].s7 /datos1[region2-1][carreras.size()-1].tot);
+    porcentajes1[region2-1][carreras.size()-1].nocons = 100*(datos1[region2-1][carreras.size()-1].nocons /datos1[region2-1][carreras.size()-1].tot);
+
+
+}
+
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_3 ( const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras, const vector <string>& regiones ) {
+
+int region3, grado3, region4, grado4;
+
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                      COMPARAR DATOS DE SUELDOS DE PRIMER EMPLEO SEGUN ESTUDIOS                                      |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+int COMPARACION;
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                              ACCIONES                                                               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Comparar los sueldos de una carrera en las diferentes          2. Comparar los sueldo de dos carreras diferentes en         |" << endl ;
+cout << "|         regiones de España                                                en dos regiones diferentes.                               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS ACCIONES )"  << endl << endl ;
+cout << "                                                      QUE DESEA HACER ? --> " ; cin >> COMPARACION ; cout << endl << endl;
+
+
+if (COMPARACION == 1) {
+
+system ("cls");
+
+int J,j,l = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
+
+cout << "                                             INTORDUCE EL GRADO DEL EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
+cout << "                                                             GRADO --> " ; cin >> grado3 ; cout << endl << endl;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+cout << "PORCENTAJE DE PERSONAS EN " << regiones[J] << " CON UN SALARIO:  <700 " << CONS2[J][grado3-1].s1 << "%  700-999 " << CONS2[J][grado3-1].s2 << "%  1000-1499 " << CONS2[J][grado3-1].s3 << "%  1500-1999 ";
+cout << CONS2[J][grado3-1].s4 << "%  2000-2499 " << CONS2[J][grado3-1].s5 << "%  2500-2999 " << CONS2[J][grado3-1].s6 << "%  >3000 " << CONS2[J][grado3-1].s7 << "%  No_consta ";
+cout << CONS2[J][grado3-1].nocons << "%." << endl << endl;
+
+}
+
+int s1max, s2max, s3max, s4max, s5max, s6max, s7max, pp8max;
+double ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s1 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s1;
+
+    s1max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s2 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s2;
+
+    s2max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s3 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s3;
+
+    s3max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s4 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s4;
+
+    s4max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s5 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s5;
+
+    s5max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s6 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s6;
+
+    s6max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].s7 >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].s7;
+
+    s7max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+for ( J = 0 ; J < 18 ; J++) {
+
+if ( CONS2[J][grado3-1].nocons >= ppmax) {
+
+    ppmax = CONS2[J][grado3-1].nocons;
+
+    pp8max = J;
+
+}
+
+}
+
+ppmax = 0.0;
+
+
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN MENOS DE 700 ES " << regiones[s1max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 700 Y 999 ES " << regiones[s2max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 1000 Y 1499 ES " << regiones[s3max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 1500 Y 1999 ES " << regiones[s4max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 2000 Y 2499 ES " << regiones[s5max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN ENTRE 2499 Y 2999 ES " << regiones[s6max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE COBRAN MAS DE 3000 ES " << regiones[s7max] << endl << endl;
+cout << "LA REGION DONDE HAY MAS PORCENTAJE DE PERSONAS QUE NO ESPECIFICAN LO QUE COBRAN ES " << regiones[pp8max] << endl << endl;
+
+}
+
+else if (COMPARACION == 2) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Seleccione la region y el grado correspondiente del            2. Seleccione la region y el grado correspondiente del       |" << endl ;
+cout << "|         primer empleo a comparar.                                         segundo empleo a comparar.                                |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+escribe_comunidades();
+
+cout << "                                           INTORDUCE LA REGION DEL PRIMER EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> region3 ; cout << endl << endl;
+
+system ("cls");
+
+int j,l = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
+
+cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
+cout << "                                                             GRADO --> " ; cin >> grado3 ; cout << endl << endl;
+
+system ("cls");
+
+escribe_comunidades();
+
+cout << "                                          INTORDUCE LA REGION DEL SEGUNDO EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LAS REGIONES )"  << endl << endl ;
+cout << "                                                             REGION --> " ; cin >> region4 ; cout << endl << endl;
+
+system ("cls");
+
+l = 1;
+
+for ( j = 0 ; j < carreras.size() ; j++) {
+
+    cout << l << "  ----- " << carreras[j] << endl ; l++;
+
+}
+
+cout << "                                          INTORDUCE EL GRADO DEL PRIMER EMPLEO A COMPARAR " << endl ;
+cout << "                                        ( UTILIZANDO LOS NUMEROS RESPECTIVOS DE LOS GRADOS )"  << endl << endl ;
+cout << "                                                             GRADO --> " ; cin >> grado4 ; cout << endl << endl;
+
+system ("cls");
+
+if ( grado3 == grado4 && region3 == region4 ) cout << "EL PROGRAMA NO PUEDE REALIZAR ESTA ACCION PORQUE HA ELEGIDO LA MISMA CARRERA EN LA MISMA REGION..." << endl << endl ;
+
+else {
+
+cout << "Total de trabajadores registrados en el empleo 1: " << CONS1[region3-1][grado3-1].tot << endl ;
+cout << "Total de trabajadores registrados en el empleo 2: " << CONS1[region4-1][grado4-1].tot << endl << endl << endl;
+cout << "Trabajadores con salario de menos de 700€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s1 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s1 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 700€ y 999€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s2 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s2 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 1000€ y 1499€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s3 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s3 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 1500€ y 1999€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s4 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s4 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 2000€ y 2499€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s5 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s5 << "%." << endl << endl;
+cout << "Trabajadores con salario entre 2500€ y 2999€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s6 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s6 << "%." << endl << endl;
+cout << "Trabajadores con salario de mas de 3000€ mensuales: " << endl ;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].s7 << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].s7 << "%." << endl << endl;
+cout << "Trabajadores cuyo salario no costa en la base de datos: " << endl;
+cout << "EMPLEO 1: " << CONS2[region3-1][grado3-1].nocons << "%.      EMPLEO 2: "<< CONS2[region4-1][grado4-1].nocons << "%." << endl << endl << endl;
+
+}
+
+}
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_4( const tdatos& CONS1, const vector<string> regiones, const vector <string>& carreras) {
+setlocale (LC_ALL, "spanish");
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                       BUSCADOR DEL SECTOR DONDE HAY MÁS TRABAJADORES NUEVOS                                         |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                            INSTRUCCIONES                                                            |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|      1. Selecciona la region que quieras conocer los datos con los respectivos números                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                         COMUNIDADES AUTONOMAS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          1. Nacional                       6. Canarias                      11. Comunitat Valenciana     16. Navarra                |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          2. Andalucía                      7. Cantabria                     12. Extremadura              17. País Vasco             |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          3. Aragón                         8. Castilla y León               13. Galicia                  18. La Rioja               |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          4. Principado de Asturias         9. Castilla la Mancha            14. Madrid                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|          5. Islas Baleares                10. Cataluña                      15. Murcia                                              |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+int region;
+cin>>region;
+while (region!=1 && region!=2 && region!=3 &&  region!=4 &&  region!=5 &&  region!=6 && region!=7 &&  region!=8 &&  region!=9 &&  region!=10 &&
+        region!=11 &&  region!=12 &&  region!=13 &&  region!=14 &&  region!=15  &&  region!=16 &&  region!=17 &&  region!=18)
+{cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>region;}
+
+system("cls");
+int jmax, auxmax=0;
+ for (int j=1; j<42;j++){
+int  treballadors; // per mes tard guardar el valor més gran
+treballadors = CONS1[region-1][j].tot;
+
+    if (treballadors>auxmax) {auxmax=treballadors;jmax=j;}
+
+
+}
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                        RESULTADOS                                                                   |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "|             En esta región el sector dónde predominan nuevos trabajadores es: " << carreras [jmax]    <<"                           |" << endl ;
+cout << "|                                                                                                                                     |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+ }
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_5(const tdatos& CONS1, const tdatos& CONS2, const vector <string>& carreras) {
+    
+setlocale (LC_ALL, "spanish");
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                    CONSULTA DE TODOS LOS DATOS                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                   Datos disponibles                          |       |                     INFORMACION DE LA ACCIÓN                 |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. Datos numericos                                         |       |   ATENCIÓN!!!  Esta acción puede tardar un tiempo en         |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|                                                              |       |                ejecutarse del todo, debido a la gran         |" << endl ;
+cout << "|   2. Porcentajes                                             |       |                                                              |" << endl ;
+cout << "|                                                              |       |                cantidad de información.                      |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   Por favor introduzca el numero del documento que           |       ----------------------------------------------------------------" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "|   desea consultar.                                           |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
+int opcio;
+cin>>opcio;
+
+while (opcio!=1 && opcio!=2) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
+
+system("cls");
+
+vector <string> comunitats (19);
+comunitats[0] = "NACIONAL";comunitats[1] = "ANDALUCÍA";comunitats[2] = "ARAGÓN";
+comunitats[3] = "PRINCIPADO DE ASTURIAS";comunitats[4] = "ISLAS BALEARES";comunitats[5] = "CANARIAS";
+comunitats[6] = "CANTABRIA";comunitats[7] = "CASTILLA Y LEÓN";comunitats[8] = "CASTILLA LA MANCHA";
+comunitats[9] = "CATALUÑA";comunitats[10] = "COMUNITAT VALENCIANA";comunitats[11] = "EXTREMADURA";
+comunitats[12] = "GALICIA";comunitats[13] = "MADRID";comunitats[14] = "MURCIA";
+comunitats[15] = "NAVARRA";comunitats[16] = "PAÍS VASCO"; comunitats[17] = "LA RIOJA";
+
+
+if (opcio==1) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                           DATOS NUMERICOS                                                            |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA |" <<endl;
+ for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS1[i][j].tot<<"|"<<CONS1[i][j].s1<<"|"<<CONS1[i][j].s2<<"|"<<CONS1[i][j].s3<<"|"<<CONS1[i][j].s4<<"|"<<CONS1[i][j].s5<<"|"<<CONS1[i][j].s6<<"|"<<CONS1[i][j].s7<<"|"<<CONS1[i][j].nocons<<"|" <<endl ;
+}}
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+}
+
+else if (opcio==2) {
+
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                                           DATOS EN PORCENTAJES                                                       |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|    SALARIO (EN EUROS)  |  TOTAL HAN TRABAJADO  |  MENOS 700  |   DE 700 a 999   |  DE 1000 a 1499  |  DE 1500 a 1999  |  DE 2000 a 2499  |  DE 2500 a 3000  |  MÁS DE 3000  |  NO CONSTA |" <<endl;
+ for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+cout << "|"<<comunitats[i]<<": "<<carreras[j]<<"|"<<CONS2[i][j].tot<<"|"<<CONS2[i][j].s1<<"|"<<CONS2[i][j].s2<<"|"<<CONS2[i][j].s3<<"|"<<CONS2[i][j].s4<<"|"<<CONS2[i][j].s5<<"|"<<CONS2[i][j].s6<<"|"<<CONS2[i][j].s7<<"|"<<CONS2[i][j].nocons<<"|" <<endl ;
+}}
+cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+
+
+}
+
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+void ACCION_6 ( const tdatos& CONS2,  const vector <string>& carreras) {
+setlocale (LC_ALL, "spanish");
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl ;
+cout << "|                                        CONSULTA DE CARRERAS CON MÁS DE UN PORCENTAJE EN x UMBRAL DE SALARIO                         |" << endl ;
+cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl << endl ;
+
+cout << "----------------------------------------------------------------       ----------------------------------------------------------------" << endl ;
+cout << "|                   UMBRAL DE SALARIO (en euros)               |       |                     INFORMACION DE LA ACCIÓN                 |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   1. + 1000         2. +1500          3. +2000               |       |   Introduzca primero el umbral que desea consultar,          |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|                                                              |       |   a continuación el porcentaje de personas que quiera,       |" << endl ;
+cout << "|   4. + 2500         5. +3000                                 |       |                                                              |" << endl ;
+cout << "|                                                              |       |   el programa buscara las carreras que cumplan con los       |" << endl ;
+cout << "|                                                              |       |                                                              |" << endl ;
+cout << "|   Por favor introduzca el numero del umbral que              |       |    dos parametros.                                           |" << endl ;
+cout << "|                                                              |       ----------------------------------------------------------------" << endl ;
+cout << "|   desea consultar.                                           |" << endl ;
+cout << "|                                                              |" << endl ;
+cout << "----------------------------------------------------------------" << endl << endl ;
+int opcio;
+cin>>opcio;
+
+while (opcio!=1 && opcio!=2 && opcio!=3 && opcio!=4 && opcio!=5) {cout<<"POR FAVOR INTRODUZCA UN NUMERO ADECUADO"<<endl; cin>>opcio;}
+
+system("cls");
+
+double percent;
+vector <string> comunitats (19);
+comunitats[0] = "NACIONAL";comunitats[1] = "ANDALUCÍA";comunitats[2] = "ARAGÓN";
+comunitats[3] = "PRINCIPADO DE ASTURIAS";comunitats[4] = "ISLAS BALEARES";comunitats[5] = "CANARIAS";
+comunitats[6] = "CANTABRIA";comunitats[7] = "CASTILLA Y LEÓN";comunitats[8] = "CASTILLA LA MANCHA";
+comunitats[9] = "CATALUÑA";comunitats[10] = "COMUNITAT VALENCIANA";comunitats[11] = "EXTREMADURA";
+comunitats[12] = "GALICIA";comunitats[13] = "MADRID";comunitats[14] = "MURCIA";
+comunitats[15] = "NAVARRA";comunitats[16] = "PAÍS VASCO"; comunitats[17] = "LA RIOJA";
+
+
+cout<<" POR FAVOR INTRODUZCA AHORA EL PORCENTAJE QUE DESEA CONSULTAR"<<endl;
+cin>>percent;
+while (percent<0 || percent>100) {cout<<" POR FAVOR INTRODUZCA UN VALOR ADECUADO"<<endl; cin>>percent;}
+
+if(opcio==1) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s3+CONS2[i][j].s4+CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a << "%" <<endl;; }
+}
+}
+
+}
+else if(opcio==2) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s4+CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==3) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s5+CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==4) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s6+CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+else if(opcio==5) { cout<<" LAS CARRERAS QUE CUMPLEN CON EL UMBRAL SON: ";
+        for ( int i = 0 ; i < 18 ; i++ )  {
+    for ( int j = 0 ; j < carreras.size() ; j++ ) {
+         int a = CONS2[i][j].s7;
+      if ((a)>percent ) {cout<<comunitats [i]<<": "<< carreras[j] <<" con un " << a<< "%"<<endl;; }
+}
+}
+
+}
+
+
+
+}
